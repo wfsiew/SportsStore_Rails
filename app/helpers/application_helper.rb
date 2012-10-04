@@ -2,6 +2,7 @@ module ApplicationHelper
   class Pager
     attr_accessor :total, :pagenum
     attr_reader :pagesize
+
     def initialize(total, pagenum, pagesize)
       @total = total
       @pagenum = pagenum
