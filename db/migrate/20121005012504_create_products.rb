@@ -8,8 +8,6 @@ class CreateProducts < ActiveRecord::Migration
       t.string :category
       t.binary :imagedata
       t.string :imagemimetype
-
-      t.timestamps
     end
   end
 end
