@@ -21,7 +21,7 @@
     <td><%= product.description %></td>
     <td><%= product.price %></td>
     <td><%= product.category %></td>
-    <td><%= product.imagedata %></td>
+    <td><img src="/products/<%= product.productID %>/img" width="75" height="75"></td>
     <td><%= product.imagemimetype %></td>
     <td><%= link_to 'Show', product %></td>
     <td><%= link_to 'Edit', edit_product_path(product) %></td>

@@ -1,4 +1,5 @@
 module ApplicationHelper
+  
   class Pager
     attr_accessor :total, :pagenum
     attr_reader :pagesize
@@ -35,11 +36,11 @@ module ApplicationHelper
       upperbound
     end
 
-    def hasnext
+    def has_next
       @total > upper_bound ? true : false
     end
 
-    def hasprev
+    def has_prev
       lower_bound > 0 ? true : false
     end
 
@@ -59,5 +60,10 @@ module ApplicationHelper
 
       "#{x} to #{y} of #{total}"
     end
+    
+    def self.numeric?(val)
+      true if Float(val) rescue false
+    end
   end
+  
 end

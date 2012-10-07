@@ -1,13 +1,21 @@
-class ProductsController < ApplicationController
+class ProductsController < ApplicationController  
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
+    
+    #@dic = ProductsHelper.get_all(1, 2)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
     end
+  end
+  
+  # GET /products/1/getimg
+  def getimg
+    @product = Product.find(params[:id])
+    send_data(@product.imagedata, :type => @product.imagemimetype, :disposition => 'inline')
   end
 
   # GET /products/1
@@ -40,7 +48,12 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(params[:product])
+    product = params[:product]
+    c, data = ProductsHelper.get_uploaded_file(product[:imagedata])
+    
+    o = Product.new(:productID => product[:productID], :name => product[:name], :description => product[:description],
+    :price => product[:price], :category => product[:category], :imagedata => data, :imagemimetype => c)
+    @product = o
 
     respond_to do |format|
       if @product.save

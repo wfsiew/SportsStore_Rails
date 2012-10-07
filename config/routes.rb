@@ -1,5 +1,12 @@
 Sportsstore::Application.routes.draw do
+  match 'product' => 'product#index', :as => :product
+  match 'product/index(/:page)' => 'product#index_paged', :as => :product_paged
+  match 'product(/:category)' => 'product#category', :as => :category
+  match 'product(/:category(/:page))' => 'product#category_paged', :as => :category_paged
+  match 'productimg(/:id)' => 'product#getimage', :as => :image
+  
   resources :products
+  match 'products(/:id)/img' => 'products#getimage'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -2,4 +2,15 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  general:
+    items: item(s)
+    checkout: Checkout
+  product:
+    title: Products
+    header_title: SPORTS STORE
+  cart:
+    title: "Sports Store: Your Cart"
+    msg: Your cart
+    shoppingcart: Shopping Cart
+    add_to_cart: "+ Add to cart"
+  
