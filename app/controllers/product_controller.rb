@@ -2,8 +2,8 @@ class ProductController < ApplicationController
   layout 'productmain'
   
   def index
-    dic = get_products()
-    @cart = ProductHelper::Cart.cart(session)
+    dic = get_products
+    @cart = CartHelper::Cart.cart(session)
     @categories = dic[:categories]
     @products = dic[:products]
     @pager = dic[:pager]
@@ -15,8 +15,9 @@ class ProductController < ApplicationController
   end
   
   def index_paged
-    page = get_page()
+    page = get_page
     dic = get_products("", page)
+    @cart = CartHelper::Cart.cart(session)
     @categories = dic[:categories]
     @products = dic[:products]
     @pager = dic[:pager]
@@ -29,6 +30,7 @@ class ProductController < ApplicationController
   
   def category
     dic = get_products(params[:category], 1)
+    @cart = CartHelper::Cart.cart(session)
     @categories = dic[:categories]
     @products = dic[:products]
     @pager = dic[:pager]
@@ -40,8 +42,9 @@ class ProductController < ApplicationController
   end
   
   def category_paged
-    page = get_page()
+    page = get_page
     dic = get_products(params[:category], page)
+    @cart = CartHelper::Cart.cart(session)
     @categories = dic[:categories]
     @products = dic[:products]
     @pager = dic[:pager]
@@ -60,7 +63,7 @@ class ProductController < ApplicationController
   private
   
   def get_products(category="", pagenum=1)
-    categories = ProductHelper.get_categories()
+    categories = ProductHelper.get_categories
     if category.empty?
       dic = ProductHelper.get_all(pagenum, 4)
       

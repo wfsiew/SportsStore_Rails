@@ -5,12 +5,58 @@ en:
   general:
     items: item(s)
     checkout: Checkout
+    yes: Yes
+    no: No
+    options: Options
+    language: Language
+    theme: Theme
+    refresh: Refresh
   product:
     title: Products
     header_title: SPORTS STORE
+    name: Name
+    description: Description
+    category: Category
+    image: Image
+    upload_image: "Upload new image:"
+    cancel_form: Cancel and return to List
+    allcategories: All Categories
+    add:
+      title: "Admin: Add New Product"
+      heading: Add New Product
+    edit:
+      title: "Admin: Edit"
+      heading: Edit Product
   cart:
     title: "Sports Store: Your Cart"
     msg: Your cart
-    shoppingcart: Shopping Cart
     add_to_cart: "+ Add to cart"
+    add_to_cart2: Add to cart
+    shoppingcart: Shopping Cart
+    empty: Sorry, your cart is empty!
+  cartline:
+    quantity: Quantity
+    item: Item
+    price: Price
+    subtotal: Subtotal
+    remove: Remove
+    total: "Total:"
+    continue_shopping: Continue shopping
+    checkoutnow: Checkout now
+  checkout:
+    title: "Sports Store: Checkout"
+    complete:
+      title: "Sports Store: Order Submitted"
+      msg: Thanks for placing your order. We'll ship your goods as soon as possible.
+    header: Check out now
+    msg: Please enter your details, and we'll ship your goods right away!
+    thanks: Thanks!
+  order:
+    msg: A new order has been submitted
+    items: "Items:"
+    subtotal: "subtotal:"
+    total: "Total order value:"
+    shipto: "Ship to:"
+    giftwrap: "Gift wrap:"
+    subject: New order submitted!
   

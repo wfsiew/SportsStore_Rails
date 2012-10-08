@@ -1,8 +1,14 @@
 Sportsstore::Application.routes.draw do
+  root :to => 'product#index'
   match 'product' => 'product#index', :as => :product
   match 'product/index(/:page)' => 'product#index_paged', :as => :product_paged
   match 'product(/:category)' => 'product#category', :as => :category
   match 'product(/:category(/:page))' => 'product#category_paged', :as => :category_paged
+  
+  match 'cart' => 'cart#index', :as => :cart
+  match 'cart/add(/:id)' => 'cart#add', :as => :cart_add
+  match 'cart/remove(/:id)' => 'cart#remove', :as => :cart_remove
+  
   match 'productimg(/:id)' => 'product#getimage', :as => :image
   
   resources :products

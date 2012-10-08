@@ -1,0 +1,39 @@
+<h2><%= t('cart.msg') %></h2>
+<table width="90%" align="center">
+  <thead>
+    <tr>
+      <th align="ceenter"><%= t('cartline.quantity') %></th>
+      <th align="left"><%= t('cartline.item') %></th>
+      <th align="right"><%= t('cartline.price') %></th>
+      <th align="right"><%= t('cartline.subtotal') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart.cartlines.each do |line| %>
+      <tr>
+        <td align="ceenter"><%= line.quantity %></td>
+        <td align="left"><%= line.product.name %></td>
+        <td align="right"><%= number_to_currency line.product.price %></td>
+        <td align="right"><%= number_to_currency(line.quantity * line.product.price) %></td>
+        <td>
+          <%= form_tag(cart_remove_url(:id => line.product.productID)) do %>
+            <%= hidden_field_tag 'returnUrl', @returnUrl %>
+            <%= submit_tag t('cartline.remove'), :class => 'actionButtons' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3" align="right"><%= t('cartline.total') %></td>
+      <td align="right">
+        <%= number_to_currency @cart.compute_total_value %>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+<p align="center" class="actionButtons">
+  <%= link_to t('cartline.continue_shopping'), @returnUrl %>
+  <%= link_to t('cartline.checkoutnow'), '/cart/checkout' %>
+</p>

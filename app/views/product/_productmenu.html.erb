@@ -1,5 +1,5 @@
 <%= link_to 'Home', product_url(:page => 1) %>
-<%= link_to t('cart.shoppingcart'), '/cart' %>
+<%= link_to t('cart.shoppingcart'), cart_url %>
 <% @categories.each do |c| %>
   <% opt = {} %>
   <% opt[:class] = 'selected' if c.category == @category %>

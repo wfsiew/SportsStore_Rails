@@ -16,11 +16,11 @@
       <a href="?lang=en" title="English">EN</a> |
       <a href="?lang=ja" title="Japanese">JA</a>
     </div>
-    <%= render :partial => 'cartsummary' %>
+    <%= render :partial => 'cart/cartsummary' %>
     <div class="title"><%= @header_title %></div>
   </div>
   <div id="categories">
-    <%= render :partial => 'productmenu' %>
+    <%= render :partial => 'product/productmenu' %>
   </div>
   <div id="content">
     <%= yield %>

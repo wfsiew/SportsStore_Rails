@@ -1,0 +1,27 @@
+<% @products.each do |p| %>
+  <div class="item">
+    <% if !p.imagedata.blank? %>
+      <div style="float: left; margin-right: 20px">
+        <%= image_tag image_url(:id => p.productID), { :width => 75, :height => 75 } %>
+      </div>
+    <% end %>
+    <h3><%= p.name %></h3>
+    <%= p.description %>
+    <%= form_tag "/cart/add/#{p.productID}" do %>
+      <%= hidden_field_tag 'returnUrl', request.env['REQUEST_PATH'] %>
+      <%= submit_tag t('cart.add_to_cart') %>
+    <% end %>
+    <h4><%= number_to_currency p.price %></h4>
+  </div>
+<% end %>
+<div class="pager">
+  <% (1...@pager.total_pages).each do |p| %>
+    <% opt = {} %>
+    <% opt[:class] = 'selected' if p == @pager.pagenum %>
+    <% if @category.blank? %>
+      <%= link_to p, product_paged_url(:page => p), opt %>
+    <% else %>
+      <%= link_to p, category_paged_url(:category => @category, :page => p), opt %>
+    <% end %>
+  <% end %>
+</div>
