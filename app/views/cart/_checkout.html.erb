@@ -2,12 +2,63 @@
 <% unless @cartempty.blank? %>
   <p class="form_error"><%= @cartempty %></p>
 <% end %>
+
 <%= form_tag(cart_checkout_url) do %>
   <h3><%= t('shinfo.header') %></h3>
-  <div>
-    <%= text_field_tag :name %>
-  </div>
-  <div>
-    <%= text_field_tag :line1 %>
-  </div>
+  <% if @shippingdetails.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shippingdetails.errors.count, "error") %> prohibited this shipping details from being saved:</h2>
+
+      <ul>
+      <% @shippingdetails.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <table>
+    <tr>
+      <td><%= t('shinfo.name') %></td>
+      <td><%= text_field_tag :name %></td>
+    </tr>
+    <tr>
+      <td><%= t('shinfo.address.line1') %></td>
+      <td><%= text_field_tag :line1 %></td>
+    </tr>
+    <tr>
+      <td><%= t('shinfo.address.line2') %></td>
+      <td><%= text_field_tag :line2 %></td>
+    </tr>
+    <tr>
+      <td><%= t('shinfo.address.line3') %></td>
+      <td><%= text_field_tag :line3 %></td>
+    </tr>
+    <tr>
+      <td><%= t('shinfo.address.city') %></td>
+      <td><%= text_field_tag :city %></td>
+    </tr>
+    <tr>
+      <td><%= t('shinfo.address.state') %></td>
+      <td><%= text_field_tag :state %></td>
+    </tr>
+    <tr>
+      <td><%= t('shinfo.address.zip') %></td>
+      <td><%= text_field_tag :zip %></td>
+    </tr>
+    <tr>
+      <td><%= t('shinfo.address.country') %></td>
+      <td><%= text_field_tag :country %></td>
+    </tr>
+  </table>
+  
+  <h3><%= t('general.options') %></h3>
+  <label>
+    <%= check_box_tag :giftwrap %>
+    <%= label_tag :giftwrap, t('shinfo.giftwrap') %>
+  </label>
+  
+  <p align="center">
+    <%= submit_tag t('shinfo.complete_order'), { :class => 'actionButtons' } %>
+  </p>
 <% end %>

@@ -63,8 +63,8 @@ en:
       state: "State:"
       zip: "Zip:"
       country: "Country:"
-      giftwrap: Gift wrap these items
-      complete_order: Complete order
+    giftwrap: Gift wrap these items
+    complete_order: Complete order
   order:
     msg: A new order has been submitted
     items: "Items:"

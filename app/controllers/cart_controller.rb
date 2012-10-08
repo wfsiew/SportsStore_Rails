@@ -36,6 +36,11 @@ class CartController < ApplicationController
     @categories = ProductHelper.get_categories
     @shippingdetails = CartHelper::ShippingDetails.new
     
+    if request.method == 'POST'
+      @shippingdetails.save
+      puts @shippingdetails.inspect
+    end
+    
     respond_to do |fmt|
       fmt.html { render 'checkoutpage' }
     end

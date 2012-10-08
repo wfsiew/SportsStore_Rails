@@ -60,7 +60,25 @@ module CartHelper
   end
   
   class ShippingDetails
+    include ActiveModel::Validations
+    
     attr_accessor :name, :line1, :line2, :line3, :city, :state, :zip, :country, :giftwrap
+    
+    validates :name, :presence => true
+    
+    def initialize(attributes = {})
+      attributes.each do |name, value|
+        send("#{name}=", value)
+      end
+    end
+    
+    def persisted?
+      false
+    end
+    
+    def save
+      
+    end
   end
   
 end
