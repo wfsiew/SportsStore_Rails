@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
   
   # GET /products/1/getimg
-  def getimg
+  def getimage
     @product = Product.find(params[:id])
     send_data(@product.imagedata, :type => @product.imagemimetype, :disposition => 'inline')
   end
@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     product = params[:product]
-    c, data = ProductsHelper.get_uploaded_file(product[:imagedata])
+    c, data = ProductHelper.get_uploaded_file(product[:imagedata])
     
     o = Product.new(:productID => product[:productID], :name => product[:name], :description => product[:description],
     :price => product[:price], :category => product[:category], :imagedata => data, :imagemimetype => c)

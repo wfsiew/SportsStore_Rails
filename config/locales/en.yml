@@ -51,6 +51,20 @@ en:
     header: Check out now
     msg: Please enter your details, and we'll ship your goods right away!
     thanks: Thanks!
+  shinfo:
+    header: Ship to
+    name: "Name:"
+    address:
+      label: Address
+      line1: "Line 1:"
+      line2: "Line 2"
+      line3: "Line 3"
+      city: "City:"
+      state: "State:"
+      zip: "Zip:"
+      country: "Country:"
+      giftwrap: Gift wrap these items
+      complete_order: Complete order
   order:
     msg: A new order has been submitted
     items: "Items:"

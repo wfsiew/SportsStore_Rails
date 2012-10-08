@@ -1,7 +1,7 @@
 module CartHelper
   
   class CartLine
-    attr_accessor :product, :quantity
+    attr_accessor :productID, :quantity
   end
   
   class Cart
@@ -12,10 +12,10 @@ module CartHelper
     end
     
     def add_item(product, quantity)
-      i = @cartlines.index { |o| o.product.productID == product.productID }
+      i = @cartlines.index { |o| o.productID == product.productID }
       if i == nil
         o = CartLine.new
-        o.product = product
+        o.productID = product.productID
         o.quantity = quantity
         @cartlines.push(o)
         
@@ -25,13 +25,16 @@ module CartHelper
     end
     
     def remove_line(product)
-      i = @cartlines.index { |o| o.product.productID == product.productID }
+      i = @cartlines.index { |o| o.productID == product.productID }
       @cartlines.delete_at(i) if i != nil
     end
     
     def compute_total_value
       sum = 0.0
-      @cartlines.each { |o| sum += o.product.price * o.quantity }
+      @cartlines.each do |o|
+        product = ProductHelper.get_product(o.productID)
+        sum += product.price * o.quantity
+      end
       sum
     end
     
@@ -54,6 +57,10 @@ module CartHelper
       
       cart
     end
+  end
+  
+  class ShippingDetails
+    attr_accessor :name, :line1, :line2, :line3, :city, :state, :zip, :country, :giftwrap
   end
   
 end

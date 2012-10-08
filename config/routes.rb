@@ -8,6 +8,7 @@ Sportsstore::Application.routes.draw do
   match 'cart' => 'cart#index', :as => :cart
   match 'cart/add(/:id)' => 'cart#add', :as => :cart_add
   match 'cart/remove(/:id)' => 'cart#remove', :as => :cart_remove
+  match 'cart/checkout' => 'cart#checkout', :as => :cart_checkout
   
   match 'productimg(/:id)' => 'product#getimage', :as => :image
   

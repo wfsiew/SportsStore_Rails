@@ -31,4 +31,14 @@ class CartController < ApplicationController
     redirect_to returnUrl
   end
   
+  def checkout
+    @cart = CartHelper::Cart.cart(session)
+    @categories = ProductHelper.get_categories
+    @shippingdetails = CartHelper::ShippingDetails.new
+    
+    respond_to do |fmt|
+      fmt.html { render 'checkoutpage' }
+    end
+  end
+  
 end
