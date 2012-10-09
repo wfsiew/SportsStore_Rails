@@ -76,8 +76,8 @@ module CartHelper
     end
     
     def show_error(key)
-      if @errors.has_key?(key)
-        content_tag(:span, @errors.get(key).first, :class => 'form_error')
+      if self.errors.has_key?(key)
+        content_tag(:span, self.errors.get(key).first, :class => 'form_error')
       end
     end
   end
