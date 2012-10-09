@@ -3,28 +3,23 @@
   <p class="form_error"><%= @cartempty %></p>
 <% end %>
 
-<%= form_tag(cart_checkout_url) do %>
+<%= form_for(cart_checkout_url) do %>
   <h3><%= t('shinfo.header') %></h3>
-  <% if @shippingdetails.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@shippingdetails.errors.count, "error") %> prohibited this shipping details from being saved:</h2>
-
-      <ul>
-      <% @shippingdetails.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   
   <table>
     <tr>
       <td><%= t('shinfo.name') %></td>
-      <td><%= text_field_tag :name %></td>
+      <td>
+        <%= text_field_tag :name %>
+        <%= @shippingdetails.show_error(:name) %>
+      </td>
     </tr>
     <tr>
       <td><%= t('shinfo.address.line1') %></td>
-      <td><%= text_field_tag :line1 %></td>
+      <td>
+        <%= text_field_tag :line1 %>
+        <%= @shippingdetails.show_error(:line1) %>
+      </td>
     </tr>
     <tr>
       <td><%= t('shinfo.address.line2') %></td>
@@ -36,11 +31,17 @@
     </tr>
     <tr>
       <td><%= t('shinfo.address.city') %></td>
-      <td><%= text_field_tag :city %></td>
+      <td>
+        <%= text_field_tag :city %>
+        <%= @shippingdetails.show_error(:city) %>
+      </td>
     </tr>
     <tr>
       <td><%= t('shinfo.address.state') %></td>
-      <td><%= text_field_tag :state %></td>
+      <td>
+        <%= text_field_tag :state %>
+        <%= @shippingdetails.show_error(:state) %>
+      </td>
     </tr>
     <tr>
       <td><%= t('shinfo.address.zip') %></td>
@@ -48,7 +49,10 @@
     </tr>
     <tr>
       <td><%= t('shinfo.address.country') %></td>
-      <td><%= text_field_tag :country %></td>
+      <td>
+        <%= text_field_tag :country %>
+        <%= @shippingdetails.show_error(:country) %>
+      </td>
     </tr>
   </table>
   

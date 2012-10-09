@@ -65,6 +65,12 @@ en:
       country: "Country:"
     giftwrap: Gift wrap these items
     complete_order: Complete order
+    blank:
+      name: Please enter a name
+      line1: Please enter the first address line
+      city: Please enter a city name
+      state: Please enter a state name
+      country: Please enter a country name
   order:
     msg: A new order has been submitted
     items: "Items:"

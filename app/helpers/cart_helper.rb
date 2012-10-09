@@ -61,23 +61,24 @@ module CartHelper
   
   class ShippingDetails
     include ActiveModel::Validations
+    include ActionView::Helpers::TagHelper
     
     attr_accessor :name, :line1, :line2, :line3, :city, :state, :zip, :country, :giftwrap
     
-    validates :name, :presence => true
-    
-    def initialize(attributes = {})
-      attributes.each do |name, value|
-        send("#{name}=", value)
-      end
-    end
-    
-    def persisted?
-      false
-    end
+    validates :name, :presence => { :message => I18n.t('shinfo.blank.name') }
+    validates :line1, :presence => { :message => I18n.t('shinfo.blank.line1') }
+    validates :city, :presence => { :message => I18n.t('shinfo.blank.city') }
+    validates :state, :presence => { :message => I18n.t('shinfo.blank.state') }
+    validates :country, :presence => { :message => I18n.t('shinfo.blank.country') }
     
     def save
-      
+      valid?
+    end
+    
+    def show_error(key)
+      if @errors.has_key?(key)
+        content_tag(:span, @errors.get(key).first, :class => 'form_error')
+      end
     end
   end
   
