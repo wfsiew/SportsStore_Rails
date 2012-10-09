@@ -71,8 +71,12 @@ module CartHelper
     validates :state, :presence => { :message => 'shinfo.blank.state' }
     validates :country, :presence => { :message => 'shinfo.blank.country' }
     
-    def save
-      valid?
+    def submit_order?
+      if valid?
+        return true
+      end
+      
+      false
     end
     
     def show_error(key)

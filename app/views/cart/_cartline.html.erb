@@ -2,7 +2,7 @@
 <table width="90%" align="center">
   <thead>
     <tr>
-      <th align="ceenter"><%= t('cartline.quantity') %></th>
+      <th align="center"><%= t('cartline.quantity') %></th>
       <th align="left"><%= t('cartline.item') %></th>
       <th align="right"><%= t('cartline.price') %></th>
       <th align="right"><%= t('cartline.subtotal') %></th>
@@ -12,7 +12,7 @@
     <% @cart.cartlines.each do |line| %>
       <% product = ProductHelper.get_product(line.productID) %>
       <tr>
-        <td align="ceenter"><%= line.quantity %></td>
+        <td align="center"><%= line.quantity %></td>
         <td align="left"><%= product.name %></td>
         <td align="right"><%= number_to_currency product.price, :unit => t('general.currency') %></td>
         <td align="right"><%= number_to_currency(line.quantity * product.price, :unit => t('general.currency')) %></td>
