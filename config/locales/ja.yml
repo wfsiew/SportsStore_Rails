@@ -1,89 +1,90 @@
 ja:
   general:
-    items: item(s)
-    checkout: Checkout
-    yes: Yes
-    no: No
-    options: Options
-    language: Language
-    theme: Theme
-    refresh: Refresh
+    items: アイテム（秒）
+    checkout: チェックアウト
+    yes: はい
+    no: なし
+    options: オプション
+    language: 言語
+    theme: テーマ
+    refresh: リフレッシュ
+    currency: JPY
   product:
     title: 製品
-    header: スポーツストア
-    name: Name
-    description: Description
-    category: Category
-    image: Image
-    upload_image: "Upload new image:"
-    cancel_form: Cancel and return to List
-    allcategories: All Categories
+    header: スポーツ店
+    name: 名
+    description: 説明
+    category: カテゴリ
+    image: 画像
+    upload_image: "新しいイメージをアップロードします。"
+    cancel_form: キャンセルしてリストに戻る
+    allcategories: すべてのカテゴリー
     add:
-      title: "Admin: Add New Product"
-      header: Add New Product
+      title: "管理者：新しい製品を追加"
+      header: 新製品を追加します。
     edit:
-      title: "Admin: Edit"
-      header: Edit Product
+      title: "管理者：[編集]"
+      header: 編集
     blank:
-      name: Please enter a product name
-      description: Please enter a description
-      price: Please enter a positive price
-      category: Please specify a category
+      name: 製品名を入力してください。
+      description: 説明を入力してください
+      price: 正の価格を入力してください。
+      category: カテゴリを指定してください
     invalid:
-      price: Invalid price
+      price: 無効な価格
       format: "Invalid value for #{value}, accepts only numbers"
-    save_success: "#{value} has been saved"
-    delete_success: "#{value} was deleted"
+    save_success: "#{value} は保存されました。"
+    delete_success: "#{value} は削除されました"
   cart:
-    title: "Sports Store: Your Cart"
-    msg: Your cart
-    add_to_cart: "+ Add to cart"
-    add_to_cart2: Add to cart
-    shoppingcart: Shopping Cart
-    empty: Sorry, your cart is empty!
+    title: "スポーツストア：あなたのカート"
+    msg: あなたのカート
+    add_to_cart: "+ カートに入れる"
+    add_to_cart2: カートに入れる
+    shoppingcart: ショッピングカート
+    empty: ギフト包装：申し訳ありませんが、あなたのカートは空です！
   cartline:
-    quantity: Quantity
-    item: Item
-    price: Price
-    subtotal: Subtotal
-    remove: Remove
-    total: "Total:"
-    continue_shopping: Continue shopping
-    checkoutnow: Checkout now
+    quantity: 量
+    item: アイテム
+    price: 価格
+    subtotal: 小計
+    remove: 削除する
+    total: "合計："
+    continue_shopping: 買い物を続ける
+    checkoutnow: 現在チェックアウト
   checkout:
-    title: "Sports Store: Checkout"
+    title: "スポーツストア：レジに進む"
     complete:
-      title: "Sports Store: Order Submitted"
-      msg: Thanks for placing your order. We'll ship your goods as soon as possible.
-    header: Check out now
-    msg: Please enter your details, and we'll ship your goods right away!
-    thanks: Thanks!
+      title: "スポーツショップ：オーダー投稿"
+      msg: あなたの順序を置いてくれてありがとう。我々はできるだけ早くあなたの商品を出荷するでしょう。
+    header: 現在チェックアウト
+    msg: あなたの詳細を入力してください、私たちはすぐにあなたの商品を出荷するよ！
+    thanks: ありがとう！
   shinfo:
-    header: Ship to
-    name: "Name:"
+    header: に出荷
+    name: "名前："
     address:
-      label: Address
-      line1: "Line 1:"
-      line2: "Line 2"
-      line3: "Line 3"
-      city: "City:"
-      state: "State:"
-      zip: "Zip:"
-      country: "Country:"
-    giftwrap: Gift wrap these items
-    complete_order: Complete order
+      label: アドレス
+      line1: "1行目："
+      line2: "2行目："
+      line3: "3行目："
+      city: "市："
+      state: "状態："
+      zip: "郵便番号："
+      country: "国："
+    giftwrap: ギフトラップ、これらの項目
+    complete_order: 完全命令
     blank:
-      name: Please enter a name
-      line1: Please enter the first address line
-      city: Please enter a city name
-      state: Please enter a state name
-      country: Please enter a country name
+      name: 名前を入力してください
+      line1: 最初のアドレスの行を入力してください。
+      city: 市区町村名を入力してください。
+      state: 状態名を入力してください
+      country: 国の名前を入力してください。
   order:
-    msg: A new order has been submitted
-    items: "Items:"
-    subtotal: "subtotal:"
-    total: "Total order value:"
-    shipto: "Ship to:"
-    giftwrap: "Gift wrap:"
-    subject: New order submitted!
+    msg: 新しい注文が送信されました
+    items: "アイテム："
+    subtotal: "小計："
+    total: "注文合計値："
+    shipto: "に出荷する："
+    giftwrap: "ギフト包装："
+    subject: 新しい順序は、提出された！
   

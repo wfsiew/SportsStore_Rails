@@ -3,11 +3,10 @@ class ApplicationController < ActionController::Base
   
   before_filter :set_locale
   
-  def set_locale
-    I18n.locale = params[:locale]
-  end
+  protected
   
-  def default_url_options(options = {})
-    { :locale => I18n.locale }
+  def set_locale
+    cookies[:locale] = params[:locale] unless params[:locale].blank?
+    I18n.locale = cookies[:locale]
   end
 end

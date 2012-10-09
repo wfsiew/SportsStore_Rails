@@ -65,19 +65,19 @@ module CartHelper
     
     attr_accessor :name, :line1, :line2, :line3, :city, :state, :zip, :country, :giftwrap
     
-    validates :name, :presence => { :message => I18n.t('shinfo.blank.name') }
-    validates :line1, :presence => { :message => I18n.t('shinfo.blank.line1') }
-    validates :city, :presence => { :message => I18n.t('shinfo.blank.city') }
-    validates :state, :presence => { :message => I18n.t('shinfo.blank.state') }
-    validates :country, :presence => { :message => I18n.t('shinfo.blank.country') }
+    validates :name, :presence => { :message => 'shinfo.blank.name' }
+    validates :line1, :presence => { :message => 'shinfo.blank.line1' }
+    validates :city, :presence => { :message => 'shinfo.blank.city' }
+    validates :state, :presence => { :message => 'shinfo.blank.state' }
+    validates :country, :presence => { :message => 'shinfo.blank.country' }
     
     def save
       valid?
     end
     
     def show_error(key)
-      if self.errors.has_key?(key)
-        content_tag(:span, self.errors.get(key).first, :class => 'form_error')
+      if errors.has_key?(key)
+        content_tag(:span, I18n.t(errors.get(key).first), :class => 'form_error')
       end
     end
   end

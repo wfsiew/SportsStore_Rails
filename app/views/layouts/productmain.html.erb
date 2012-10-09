@@ -13,8 +13,8 @@
 <body>
   <div id="header">
     <div id="lang">
-      <a href="?locale=en" title="English">EN</a> |
-      <a href="?locale=ja" title="Japanese">JA</a>
+      <%= link_to 'EN', url_for(:locale => 'en'), :title => 'English' %> |
+      <%= link_to 'JA', url_for(:locale => 'ja'), :title => 'Japanese' %>
     </div>
     <%= render :partial => 'cart/cartsummary' %>
     <div class="title"><%= @header %></div>

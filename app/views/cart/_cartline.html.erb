@@ -14,8 +14,8 @@
       <tr>
         <td align="ceenter"><%= line.quantity %></td>
         <td align="left"><%= product.name %></td>
-        <td align="right"><%= number_to_currency product.price %></td>
-        <td align="right"><%= number_to_currency(line.quantity * product.price) %></td>
+        <td align="right"><%= number_to_currency product.price, :unit => t('general.currency') %></td>
+        <td align="right"><%= number_to_currency(line.quantity * product.price, :unit => t('general.currency')) %></td>
         <td>
           <%= form_tag(cart_remove_url(:id => product.productID)) do %>
             <%= hidden_field_tag 'returnUrl', @returnUrl %>
@@ -29,12 +29,12 @@
     <tr>
       <td colspan="3" align="right"><%= t('cartline.total') %></td>
       <td align="right">
-        <%= number_to_currency @cart.compute_total_value %>
+        <%= number_to_currency @cart.compute_total_value, :unit => t('general.currency') %>
       </td>
     </tr>
   </tfoot>
 </table>
 <p align="center" class="actionButtons">
   <%= link_to t('cartline.continue_shopping'), @returnUrl %>
-  <%= link_to t('cartline.checkoutnow'), '/cart/checkout' %>
+  <%= link_to t('cartline.checkoutnow'), cart_checkout_url %>
 </p>
