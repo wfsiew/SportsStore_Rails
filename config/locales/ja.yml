@@ -1,2 +1,89 @@
 ja:
-  hh: lll
+  general:
+    items: item(s)
+    checkout: Checkout
+    yes: Yes
+    no: No
+    options: Options
+    language: Language
+    theme: Theme
+    refresh: Refresh
+  product:
+    title: 製品
+    header: スポーツストア
+    name: Name
+    description: Description
+    category: Category
+    image: Image
+    upload_image: "Upload new image:"
+    cancel_form: Cancel and return to List
+    allcategories: All Categories
+    add:
+      title: "Admin: Add New Product"
+      header: Add New Product
+    edit:
+      title: "Admin: Edit"
+      header: Edit Product
+    blank:
+      name: Please enter a product name
+      description: Please enter a description
+      price: Please enter a positive price
+      category: Please specify a category
+    invalid:
+      price: Invalid price
+      format: "Invalid value for #{value}, accepts only numbers"
+    save_success: "#{value} has been saved"
+    delete_success: "#{value} was deleted"
+  cart:
+    title: "Sports Store: Your Cart"
+    msg: Your cart
+    add_to_cart: "+ Add to cart"
+    add_to_cart2: Add to cart
+    shoppingcart: Shopping Cart
+    empty: Sorry, your cart is empty!
+  cartline:
+    quantity: Quantity
+    item: Item
+    price: Price
+    subtotal: Subtotal
+    remove: Remove
+    total: "Total:"
+    continue_shopping: Continue shopping
+    checkoutnow: Checkout now
+  checkout:
+    title: "Sports Store: Checkout"
+    complete:
+      title: "Sports Store: Order Submitted"
+      msg: Thanks for placing your order. We'll ship your goods as soon as possible.
+    header: Check out now
+    msg: Please enter your details, and we'll ship your goods right away!
+    thanks: Thanks!
+  shinfo:
+    header: Ship to
+    name: "Name:"
+    address:
+      label: Address
+      line1: "Line 1:"
+      line2: "Line 2"
+      line3: "Line 3"
+      city: "City:"
+      state: "State:"
+      zip: "Zip:"
+      country: "Country:"
+    giftwrap: Gift wrap these items
+    complete_order: Complete order
+    blank:
+      name: Please enter a name
+      line1: Please enter the first address line
+      city: Please enter a city name
+      state: Please enter a state name
+      country: Please enter a country name
+  order:
+    msg: A new order has been submitted
+    items: "Items:"
+    subtotal: "subtotal:"
+    total: "Total order value:"
+    shipto: "Ship to:"
+    giftwrap: "Gift wrap:"
+    subject: New order submitted!
+  

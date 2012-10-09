@@ -13,11 +13,11 @@
 <body>
   <div id="header">
     <div id="lang">
-      <a href="?lang=en" title="English">EN</a> |
-      <a href="?lang=ja" title="Japanese">JA</a>
+      <a href="?locale=en" title="English">EN</a> |
+      <a href="?locale=ja" title="Japanese">JA</a>
     </div>
     <%= render :partial => 'cart/cartsummary' %>
-    <div class="title"><%= @header_title %></div>
+    <div class="title"><%= @header %></div>
   </div>
   <div id="categories">
     <%= render :partial => 'product/productmenu' %>

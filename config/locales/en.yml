@@ -13,7 +13,7 @@ en:
     refresh: Refresh
   product:
     title: Products
-    header_title: SPORTS STORE
+    header: SPORTS STORE
     name: Name
     description: Description
     category: Category
@@ -23,10 +23,20 @@ en:
     allcategories: All Categories
     add:
       title: "Admin: Add New Product"
-      heading: Add New Product
+      header: Add New Product
     edit:
       title: "Admin: Edit"
-      heading: Edit Product
+      header: Edit Product
+    blank:
+      name: Please enter a product name
+      description: Please enter a description
+      price: Please enter a positive price
+      category: Please specify a category
+    invalid:
+      price: Invalid price
+      format: "Invalid value for #{value}, accepts only numbers"
+    save_success: "#{value} has been saved"
+    delete_success: "#{value} was deleted"
   cart:
     title: "Sports Store: Your Cart"
     msg: Your cart
