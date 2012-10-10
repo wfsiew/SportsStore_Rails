@@ -40,6 +40,7 @@ class ProductController < ApplicationController
     
     respond_to do |fmt|
       fmt.html { render 'productspage' }
+      fmt.json { render :json => dic }
     end
   end
   
@@ -54,6 +55,7 @@ class ProductController < ApplicationController
     
     respond_to do |fmt|
       fmt.html { render 'productspage' }
+      fmt.json { render :json => dic }
     end
   end
   
