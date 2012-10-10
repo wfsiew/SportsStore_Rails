@@ -17,7 +17,7 @@
   <br />
   <div class="editor-label"><%= t('product.image') %></div>
   <div class="editor-field">
-    <% if @product.imagedata.present? %>
+    <% if @product.imagemimetype.present? %>
       <%= image_tag image_url(:id => @product.productID), { :width => 150, :height => 150 } %>
     <% end %>
   </div>

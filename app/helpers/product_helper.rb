@@ -16,11 +16,11 @@ module ProductHelper
   end
   
   def self.get_categories
-    Product.all(:select => 'distinct category', :order => 'category')
+    Product.unscoped.all(:select => 'distinct category', :order => 'category')
   end
   
   def self.get_product(productID)
-    Product.find_by_productID(productID)
+    Product.unscoped.find_by_productID(productID)
   end
   
   def self.get_uploaded_file(file)
