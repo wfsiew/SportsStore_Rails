@@ -1,28 +1,31 @@
 Sportsstore::Application.routes.draw do
   root :to => 'product#index'
-  match 'product' => 'product#index', :as => :product
-  match 'product/index(/:page)' => 'product#index_paged', :as => :product_paged
-  match 'product(/:category)' => 'product#category', :as => :category
-  match 'product(/:category(/:page))' => 'product#category_paged', :as => :category_paged
+  match 'product' => 'product#index', :as => :product, :via => :get
+  match 'product/index(/:page)' => 'product#index_paged', :as => :product_paged, :via => :get
+  match 'product(/:category)' => 'product#category', :as => :category, :via => :get
+  match 'product(/:category(/:page))' => 'product#category_paged', :as => :category_paged, :via => :get
   
-  match 'cart' => 'cart#index', :as => :cart
-  match 'cart/add(/:id)' => 'cart#add', :as => :cart_add
-  match 'cart/remove(/:id)' => 'cart#remove', :as => :cart_remove
-  match 'cart/checkout' => 'cart#checkout', :as => :cart_checkout
+  match 'cart' => 'cart#index', :as => :cart, :via => :get
+  match 'cart/add(/:id)' => 'cart#add', :as => :cart_add, :via => :post
+  match 'cart/remove(/:id)' => 'cart#remove', :as => :cart_remove, :via => :post
+  match 'cart/checkout' => 'cart#checkout', :as => :cart_checkout, :via => [:get, :post]
   
-  match 'productimg(/:id)' => 'product#getimage', :as => :image
+  match 'productimg(/:id)' => 'product#getimage', :as => :image, :via => :get
   
-  match 'admin/product' => 'admin#index', :as => :admin_product
-  match 'admin/product/new' => 'admin#new', :as => :admin_product_new, :via => :get
-  match 'admin/product/create' => 'admin#create', :as => :admin_product_create, :via => :post
-  match 'admin/product/edit(/:id)' => 'admin#edit', :as => :admin_product_edit, :via => :get
-  match 'admin/product/update(/:id)' => 'admin#update', :as => :admin_product_update, :via => :put
-  match 'admin/product/delete' => 'admin#destroy', :as => :admin_product_delete
+  namespace :admin do
+    match 'product' => 'product#index', :as => :product, :via => :get
+    match 'product/new' => 'product#new', :as => :product_new, :via => :get
+    match 'product/create' => 'product#create', :as => :product_create, :via => :post
+    match 'product/edit(/:id)' => 'product#edit', :as => :product_edit, :via => :get
+    match 'product/update(/:id)' => 'product#update', :as => :product_update, :via => :put
+    match 'product/delete' => 'product#destroy', :as => :product_delete, :via => :delete
+  end
   
   match 'logout' => 'admin#logout', :as => :logout
   
   resources :products
-  match 'products(/:id)/img' => 'products#getimage'
+  
+  # refer to http://guides.rubyonrails.org/routing.html
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

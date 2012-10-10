@@ -25,6 +25,8 @@ en:
     cancel_form: Cancel and return to List
     allcategories: All Categories
     actions: Actions
+    save_success: "%{value} has been saved"
+    delete_success: "%{value} was deleted"
     add:
       title: "Admin: Add New Product"
       header: Add New Product
@@ -46,8 +48,6 @@ en:
     invalid:
       price: Invalid price
       format: "Invalid value for %{value}, accepts only numbers"
-    save_success: "%{value} has been saved"
-    delete_success: "%{value} was deleted"
   cart:
     title: "Sports Store: Your Cart"
     msg: Your cart

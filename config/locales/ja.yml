@@ -22,6 +22,8 @@ ja:
     cancel_form: キャンセルしてリストに戻る
     allcategories: すべてのカテゴリー
     actions: アクション
+    save_success: "%{value} は保存されました。"
+    delete_success: "%{value} は削除されました"
     add:
       title: "管理者：新しい製品を追加"
       header: 新製品を追加します。
@@ -43,8 +45,6 @@ ja:
     invalid:
       price: 無効な価格
       format: "Invalid value for %{value}, accepts only numbers"
-    save_success: "%{value} は保存されました。"
-    delete_success: "%{value} は削除されました"
   cart:
     title: "スポーツストア：あなたのカート"
     msg: あなたのカート
