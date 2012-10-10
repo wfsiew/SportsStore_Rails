@@ -32,7 +32,7 @@ class Admin::ProductController < ApplicationController
         fmt.json { render :json => @product, :status => :created, :location => @product }
           
       else
-        fmt.html { render :action => 'new' }
+        fmt.html { render 'addproductpage', :layout => 'productform' }
         fmt.json { render :json => @product.errors, :status => :unprocessable_entity }
       end
     end
@@ -65,7 +65,7 @@ class Admin::ProductController < ApplicationController
         fmt.json { head :no_content }
           
       else
-        fmt.html { render :action => "edit" }
+        fmt.html { render 'editproductpage', :layout => 'productform' }
         fmt.json { render :json => @product.errors, :status => :unprocessable_entity }
       end
     end

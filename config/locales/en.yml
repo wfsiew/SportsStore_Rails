@@ -21,7 +21,7 @@ en:
     description: Description
     category: Category
     image: Image
-    upload_image: "Upload new image:"
+    upload_image: "Upload new image"
     cancel_form: Cancel and return to List
     allcategories: All Categories
     actions: Actions

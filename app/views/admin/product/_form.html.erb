@@ -1,30 +1,49 @@
 <%= form_for(@product, :url => @url) do |f| %>
-  <%= f.label t('product.name'), :class => 'editor-label' %>
-  <br />
-  <%= f.text_field :name, :class => 'text-box' %>
-  <br />
-  <%= f.label t('product.description'), :class => 'editor-label' %>
-  <br />
-  <%= f.text_area :description, :class => 'text-box multi-line' %>
-  <br />
-  <%= f.label t('cartline.price'), :class => 'editor-label' %>
-  <br />
-  <%= f.text_field :price, :class => 'text-box' %>
-  <br />
-  <%= f.label t('product.category'), :class => 'editor-field' %>
-  <br />
-  <%= f.text_field :category, :class => 'text-box' %>
-  <br />
-  <div class="editor-label"><%= t('product.image') %></div>
-  <div class="editor-field">
-    <% if @product.imagemimetype.present? %>
-      <%= image_tag image_path(:id => @product.productID), { :width => 150, :height => 150 } %>
-    <% end %>
-  </div>
-  <div>
-    <%= t('product.upload_image') %>
-    <%= f.file_field :imagedata %>
-  </div>
-  <%= f.submit t('product.cmd.save') %>
-  <%= link_to t('product.cancel_form'), admin_product_path %>
+  <table>
+    <tr>
+      <td valign="top"><%= f.label t('product.name'), :class => 'editor-label' %></td>
+      <td>
+        <%= f.text_field :name, :class => 'text-box' %>
+        <%= @product.show_error(:name) %>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><%= f.label t('product.description'), :class => 'editor-label' %></td>
+      <td>
+        <%= f.text_area :description, :class => 'text-box multi-line' %>
+        <%= @product.show_error(:description) %>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><%= f.label t('cartline.price'), :class => 'editor-label' %></td>
+      <td>
+        <%= f.text_field :price, :class => 'text-box' %>
+        <%= @product.show_error(:price) %>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><%= f.label t('product.category'), :class => 'editor-label' %></td>
+      <td>
+        <%= f.text_field :category, :class => 'text-box' %>
+        <%= @product.show_error(:category) %>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><%= f.label t('product.image'), :class => 'editor-label' %></td>
+      <td class="editor-field">
+        <% if @product.imagemimetype.present? %>
+          <%= image_tag image_path(:id => @product.productID), { :width => 150, :height => 150 } %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><%= f.label t('product.upload_image'), :class => 'editor-label' %></td>
+      <td><%= f.file_field :imagedata %></td>
+    </tr>
+  </table>
+  
+  <p>
+    <%= f.submit t('product.cmd.save') %>
+    <%= link_to t('product.cancel_form'), admin_product_path %>
+  </p>
 <% end %>
