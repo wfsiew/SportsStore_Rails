@@ -1,6 +1,6 @@
 <h2><%= t('checkout.header') %></h2>
-<% unless @cartempty.blank? %>
-  <p class="form_error"><%= t(@cartempty) %></p>
+<% if @cartempty.present? %>
+  <p class="form_error"><%= @cartempty %></p>
 <% end %>
 
 <%= form_for(cart_checkout_url) do %>

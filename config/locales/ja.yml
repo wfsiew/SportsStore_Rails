@@ -9,9 +9,11 @@ ja:
     theme: テーマ
     refresh: リフレッシュ
     currency: JPY
+    logout: Log Out
   product:
     title: 製品
     header: スポーツ店
+    id: ID
     name: 名
     description: 説明
     category: カテゴリ
@@ -19,12 +21,20 @@ ja:
     upload_image: "新しいイメージをアップロードします。"
     cancel_form: キャンセルしてリストに戻る
     allcategories: すべてのカテゴリー
+    actions: Actions
     add:
       title: "管理者：新しい製品を追加"
       header: 新製品を追加します。
     edit:
       title: "管理者：[編集]"
       header: 編集
+    admin:
+      title: "Admin: All Products"
+      header: All Products
+    cmd:
+      delete: Delete
+      add: Add a new product
+      save: Save
     blank:
       name: 製品名を入力してください。
       description: 説明を入力してください
@@ -87,4 +97,13 @@ ja:
     shipto: "に出荷する："
     giftwrap: "ギフト包装："
     subject: 新しい順序は、提出された！
+    
+  login:
+    title: "Admin: Log In"
+    header: Log In
+    msg: "Please log in to access the administrative area:"
+    username: UserName
+    password: Password
+    submit: Log In
+    error: Incorrect username or password
   

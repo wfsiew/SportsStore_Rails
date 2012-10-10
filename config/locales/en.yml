@@ -12,9 +12,11 @@ en:
     theme: Theme
     refresh: Refresh
     currency: MYR
+    logout: Log Out
   product:
     title: Products
     header: SPORTS STORE
+    id: ID
     name: Name
     description: Description
     category: Category
@@ -22,12 +24,20 @@ en:
     upload_image: "Upload new image:"
     cancel_form: Cancel and return to List
     allcategories: All Categories
+    actions: Actions
     add:
       title: "Admin: Add New Product"
       header: Add New Product
     edit:
       title: "Admin: Edit"
       header: Edit Product
+    admin:
+      title: "Admin: All Products"
+      header: All Products
+    cmd:
+      delete: Delete
+      add: Add a new product
+      save: Save
     blank:
       name: Please enter a product name
       description: Please enter a description
@@ -35,9 +45,9 @@ en:
       category: Please specify a category
     invalid:
       price: Invalid price
-      format: "Invalid value for #{value}, accepts only numbers"
-    save_success: "#{value} has been saved"
-    delete_success: "#{value} was deleted"
+      format: "Invalid value for %{value}, accepts only numbers"
+    save_success: "%{value} has been saved"
+    delete_success: "%{value} was deleted"
   cart:
     title: "Sports Store: Your Cart"
     msg: Your cart
@@ -90,4 +100,13 @@ en:
     shipto: "Ship to:"
     giftwrap: "Gift wrap:"
     subject: New order submitted!
+    
+  login:
+    title: "Admin: Log In"
+    header: Log In
+    msg: "Please log in to access the administrative area:"
+    username: UserName
+    password: Password
+    submit: Log In
+    error: Incorrect username or password
   

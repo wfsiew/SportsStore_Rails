@@ -7,16 +7,11 @@ module ApplicationHelper
     def initialize(total, pagenum, pagesize)
       @total = total
       @pagenum = pagenum
-      @pagesize = pagesize
+      set_pagesize(pagesize)
     end
 
     def pagesize=(pagesize)
-      if @total < pagesize || pagesize < 1
-        @pagesize = @total
-
-      else
-        @pagesize = pagesize
-      end
+      set_pagesize(pagesize)
     end
 
     def item_message
@@ -46,6 +41,17 @@ module ApplicationHelper
 
     def total_pages
       (Float(@total) / @pagesize).ceil
+    end
+    
+    private
+    
+    def set_pagesize(pagesize)
+      if @total < pagesize || pagesize < 1
+        @pagesize = @total
+
+      else
+        @pagesize = pagesize
+      end
     end
   end
 

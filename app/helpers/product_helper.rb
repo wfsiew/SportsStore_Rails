@@ -24,9 +24,13 @@ module ProductHelper
   end
   
   def self.get_uploaded_file(file)
-    content_type = file.content_type
-    data = file.read
-    return content_type, data
+    if file.present?
+      content_type = file.content_type
+      data = file.read
+      return content_type, data
+    end
+    
+    return nil, nil
   end
   
 end

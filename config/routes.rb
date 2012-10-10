@@ -12,6 +12,15 @@ Sportsstore::Application.routes.draw do
   
   match 'productimg(/:id)' => 'product#getimage', :as => :image
   
+  match 'admin/product' => 'admin#index', :as => :admin_product
+  match 'admin/product/new' => 'admin#new', :as => :admin_product_new, :via => :get
+  match 'admin/product/create' => 'admin#create', :as => :admin_product_create, :via => :post
+  match 'admin/product/edit(/:id)' => 'admin#edit', :as => :admin_product_edit, :via => :get
+  match 'admin/product/update(/:id)' => 'admin#update', :as => :admin_product_update, :via => :put
+  match 'admin/product/delete' => 'admin#destroy', :as => :admin_product_delete
+  
+  match 'logout' => 'admin#logout', :as => :logout
+  
   resources :products
   match 'products(/:id)/img' => 'products#getimage'
 

@@ -38,7 +38,7 @@ class CartController < ApplicationController
     
     if request.post?
       if @cart.cartlines.blank?
-        @cartempty = 'cart.empty'
+        @cartempty = t('cart.empty')
       end
       
       @shippingdetails.name = params[:name]
