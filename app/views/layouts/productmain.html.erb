@@ -16,11 +16,11 @@
       <%= link_to 'EN', url_for(:locale => 'en'), :title => 'English' %> |
       <%= link_to 'JA', url_for(:locale => 'ja'), :title => 'Japanese' %>
     </div>
-    <%= render :partial => 'cart/cartsummary' %>
+    <%= render 'cart/cartsummary' %>
     <div class="title"><%= @header %></div>
   </div>
   <div id="categories">
-    <%= render :partial => 'product/productmenu' %>
+    <%= render 'product/productmenu' %>
   </div>
   <div id="content">
     <%= yield %>

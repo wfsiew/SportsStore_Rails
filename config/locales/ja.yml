@@ -9,7 +9,7 @@ ja:
     theme: テーマ
     refresh: リフレッシュ
     currency: JPY
-    logout: Log Out
+    logout: ログアウト
   product:
     title: 製品
     header: スポーツ店
@@ -21,7 +21,7 @@ ja:
     upload_image: "新しいイメージをアップロードします。"
     cancel_form: キャンセルしてリストに戻る
     allcategories: すべてのカテゴリー
-    actions: Actions
+    actions: アクション
     add:
       title: "管理者：新しい製品を追加"
       header: 新製品を追加します。
@@ -29,12 +29,12 @@ ja:
       title: "管理者：[編集]"
       header: 編集
     admin:
-      title: "Admin: All Products"
-      header: All Products
+      title: "管理者：すべての製品"
+      header: すべての製品
     cmd:
-      delete: Delete
-      add: Add a new product
-      save: Save
+      delete: 削除する
+      add: 新製品を追加します。
+      save: 保存
     blank:
       name: 製品名を入力してください。
       description: 説明を入力してください
@@ -42,9 +42,9 @@ ja:
       category: カテゴリを指定してください
     invalid:
       price: 無効な価格
-      format: "Invalid value for #{value}, accepts only numbers"
-    save_success: "#{value} は保存されました。"
-    delete_success: "#{value} は削除されました"
+      format: "Invalid value for %{value}, accepts only numbers"
+    save_success: "%{value} は保存されました。"
+    delete_success: "%{value} は削除されました"
   cart:
     title: "スポーツストア：あなたのカート"
     msg: あなたのカート
@@ -99,11 +99,11 @@ ja:
     subject: 新しい順序は、提出された！
     
   login:
-    title: "Admin: Log In"
-    header: Log In
-    msg: "Please log in to access the administrative area:"
-    username: UserName
-    password: Password
-    submit: Log In
-    error: Incorrect username or password
+    title: "管理者：ログイン"
+    header: ログイン
+    msg: "管理エリアにアクセスするには、ログインしてください："
+    username: ユーザー名
+    password: パスワード
+    submit: ログイン
+    error: ユーザーネームまたはパスワードが間違って
   

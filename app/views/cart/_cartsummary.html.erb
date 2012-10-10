@@ -3,5 +3,5 @@
     <b><%= t('cart.msg') %>:</b>
     <%= @cart.total_quantity %> <%= t('general.items') %>, <%= number_to_currency @cart.compute_total_value, :unit => t('general.currency') %>
   </span>
-  <%= link_to t('general.checkout'), cart_checkout_url %>
+  <%= link_to t('general.checkout'), cart_checkout_path %>
 </div>

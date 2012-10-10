@@ -1,7 +1,7 @@
-<%= link_to 'Home', product_url(:page => 1) %>
-<%= link_to t('cart.shoppingcart'), cart_url %>
+<%= link_to 'Home', product_path(:page => 1) %>
+<%= link_to t('cart.shoppingcart'), cart_path %>
 <% @categories.each do |c| %>
   <% opt = {} %>
   <% opt[:class] = 'selected' if c.category == @category %>
-  <%= link_to c.category, category_url(:category => c.category), opt %>
+  <%= link_to c.category, category_path(:category => c.category), opt %>
 <% end %>

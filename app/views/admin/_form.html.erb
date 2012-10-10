@@ -18,7 +18,7 @@
   <div class="editor-label"><%= t('product.image') %></div>
   <div class="editor-field">
     <% if @product.imagemimetype.present? %>
-      <%= image_tag image_url(:id => @product.productID), { :width => 150, :height => 150 } %>
+      <%= image_tag image_path(:id => @product.productID), { :width => 150, :height => 150 } %>
     <% end %>
   </div>
   <div>
@@ -26,5 +26,5 @@
     <%= f.file_field :imagedata %>
   </div>
   <%= f.submit t('product.cmd.save') %>
-  <%= link_to t('product.cancel_form'), admin_product_url %>
+  <%= link_to t('product.cancel_form'), admin_product_path %>
 <% end %>

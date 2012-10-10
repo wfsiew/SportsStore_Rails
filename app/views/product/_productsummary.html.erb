@@ -2,12 +2,12 @@
   <div class="item">
     <% if p.imagemimetype.present? %>
       <div style="float: left; margin-right: 20px">
-        <%= image_tag image_url(:id => p.productID), { :width => 75, :height => 75 } %>
+        <%= image_tag image_path(:id => p.productID), { :width => 75, :height => 75 } %>
       </div>
     <% end %>
     <h3><%= p.name %></h3>
     <%= p.description %>
-    <%= form_tag(cart_add_url(:id => p.productID)) do %>
+    <%= form_tag(cart_add_path(:id => p.productID)) do %>
       <%= hidden_field_tag 'returnUrl', request.env['REQUEST_PATH'] %>
       <%= submit_tag t('cart.add_to_cart') %>
     <% end %>
@@ -19,9 +19,9 @@
     <% opt = {} %>
     <% opt[:class] = 'selected' if p == @pager.pagenum %>
     <% if @category.blank? %>
-      <%= link_to p, product_paged_url(:page => p), opt %>
+      <%= link_to p, product_paged_path(:page => p), opt %>
     <% else %>
-      <%= link_to p, category_paged_url(:category => @category, :page => p), opt %>
+      <%= link_to p, category_paged_path(:category => @category, :page => p), opt %>
     <% end %>
   <% end %>
 </div>

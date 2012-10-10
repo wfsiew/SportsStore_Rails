@@ -13,14 +13,14 @@
     <% @products.each do |p| %>
       <tr>
         <td><%= p.productID %></td>
-        <td><%= link_to p.name, admin_product_edit_url(:id => p.productID) %></td>
+        <td><%= link_to p.name, admin_product_edit_path(:id => p.productID) %></td>
         <td class="NumericCol"><%= number_to_currency p.price, :unit => t('general.currency') %></td>
-        <td><%= link_to t('product.cmd.delete'), admin_product_delete_url(:id => p.productID), :method => :delete %></td>
+        <td><%= link_to t('product.cmd.delete'), admin_product_delete_path(:id => p.productID), :method => :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <p>
-  <%= link_to t('product.cmd.add'), admin_product_new_url %>
-  <%= link_to t('general.logout'), logout_url %>
+  <%= link_to t('product.cmd.add'), admin_product_new_path %>
+  <%= link_to t('general.logout'), logout_path %>
 </p>

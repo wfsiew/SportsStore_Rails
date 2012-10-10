@@ -17,7 +17,7 @@
         <td align="right"><%= number_to_currency product.price, :unit => t('general.currency') %></td>
         <td align="right"><%= number_to_currency(line.quantity * product.price, :unit => t('general.currency')) %></td>
         <td>
-          <%= form_tag(cart_remove_url(:id => product.productID)) do %>
+          <%= form_tag(cart_remove_path(:id => product.productID)) do %>
             <%= hidden_field_tag 'returnUrl', @returnUrl %>
             <%= submit_tag t('cartline.remove'), :class => 'actionButtons' %>
           <% end %>
@@ -36,5 +36,5 @@
 </table>
 <p align="center" class="actionButtons">
   <%= link_to t('cartline.continue_shopping'), @returnUrl %>
-  <%= link_to t('cartline.checkoutnow'), cart_checkout_url %>
+  <%= link_to t('cartline.checkoutnow'), cart_checkout_path %>
 </p>
