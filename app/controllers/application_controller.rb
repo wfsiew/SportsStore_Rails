@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
     cookies[:locale] = params[:locale] unless params[:locale].blank?
     I18n.locale = cookies[:locale]
   end
+  
+  def request_path
+    request.env['REQUEST_PATH']
+  end
+  
+  helper_method :request_path
 end

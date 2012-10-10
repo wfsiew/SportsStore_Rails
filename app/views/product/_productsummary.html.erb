@@ -8,7 +8,7 @@
     <h3><%= p.name %></h3>
     <%= p.description %>
     <%= form_tag(cart_add_path(:id => p.productID)) do %>
-      <%= hidden_field_tag 'returnUrl', request.env['REQUEST_PATH'] %>
+      <%= hidden_field_tag 'returnUrl', request_path %>
       <%= submit_tag t('cart.add_to_cart') %>
     <% end %>
     <h4><%= number_to_currency p.price, :unit => t('general.currency') %></h4>

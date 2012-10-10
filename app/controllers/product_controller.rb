@@ -8,10 +8,11 @@ class ProductController < ApplicationController
     @products = dic[:products]
     @pager = dic[:pager]
     @category = dic[:category]
+    session[:returnUrl] = request_path
     
     respond_to do |fmt|
       fmt.html { render 'productspage' }
-      fmt.json {render :json => dic }
+      fmt.json { render :json => dic }
     end
   end
   
@@ -23,6 +24,7 @@ class ProductController < ApplicationController
     @products = dic[:products]
     @pager = dic[:pager]
     @category = dic[:category]
+    session[:returnUrl] = request_path
     
     respond_to do |fmt|
       fmt.html { render 'productspage' }
@@ -37,6 +39,7 @@ class ProductController < ApplicationController
     @products = dic[:products]
     @pager = dic[:pager]
     @category = dic[:category]
+    session[:returnUrl] = request_path
     
     respond_to do |fmt|
       fmt.html { render 'productspage' }
@@ -52,6 +55,7 @@ class ProductController < ApplicationController
     @products = dic[:products]
     @pager = dic[:pager]
     @category = dic[:category]
+    session[:returnUrl] = request_path
     
     respond_to do |fmt|
       fmt.html { render 'productspage' }

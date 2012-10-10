@@ -1,5 +1,6 @@
 Sportsstore::Application.routes.draw do
   root :to => 'product#index'
+  
   match 'product' => 'product#index', :as => :product, :via => :get
   match 'product/index(/:page)' => 'product#index_paged', :as => :product_paged, :via => :get
   match 'product(/:category)' => 'product#category', :as => :category, :via => :get
@@ -22,8 +23,6 @@ Sportsstore::Application.routes.draw do
   end
   
   match 'logout' => 'admin#logout', :as => :logout
-  
-  resources :products
   
   # refer to http://guides.rubyonrails.org/routing.html
 

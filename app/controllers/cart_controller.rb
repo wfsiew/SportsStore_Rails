@@ -4,17 +4,18 @@ class CartController < ApplicationController
   def index
     @cart = CartHelper::Cart.cart(session)
     @categories = ProductHelper.get_categories
-    @returnUrl = (params[:returnUrl] == nil ? '/' : params[:returnUrl])
+    @returnUrl = get_return_url
     
     respond_to do |fmt|
       fmt.html { render 'cartpage' }
+      fmt.json { render :json => @cart }
     end
   end
   
   def add
-    returnUrl = params[:returnUrl]
+    returnUrl = get_return_url
     product = ProductHelper.get_product(params[:id])
-    if product != nil
+    if product.present?
       CartHelper::Cart.cart(session).add_item(product, 1)
     end
     
@@ -22,13 +23,12 @@ class CartController < ApplicationController
   end
   
   def remove
-    returnUrl = params[:returnUrl]
     product = ProductHelper.get_product(params[:id])
-    if product != nil
+    if product.present?
       CartHelper::Cart.cart(session).remove_line(product)
     end
     
-    redirect_to returnUrl
+    redirect_to cart_path
   end
   
   def checkout
@@ -61,14 +61,22 @@ class CartController < ApplicationController
       else
         respond_to do |fmt|
           fmt.html { render 'checkoutpage' }
+          format.json { render :json => @shippingdetails.errors, status: :unprocessable_entity }
         end
       end
       
     else
       respond_to do |fmt|
         fmt.html { render 'checkoutpage' }
+        fmt.json { render :json => @cart }
       end
     end
+  end
+  
+  private
+  
+  def get_return_url
+    session[:returnUrl].blank? ? product_path : session[:returnUrl]
   end
   
 end
