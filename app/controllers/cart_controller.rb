@@ -61,7 +61,7 @@ class CartController < ApplicationController
       else
         respond_to do |fmt|
           fmt.html { render 'checkoutpage' }
-          format.json { render :json => @shippingdetails.errors, status: :unprocessable_entity }
+          fmt.json { render :json => @shippingdetails.errors, status: :unprocessable_entity }
         end
       end
       

@@ -94,3 +94,14 @@ DIV.Message {
   padding: 8px;
   margin: 16px;
 }
+
+A {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
