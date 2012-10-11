@@ -32,7 +32,7 @@ module CartHelper
     def compute_total_value
       sum = 0.0
       @cartlines.each do |o|
-        product = ProductHelper.get_product(o.productID)
+        product = Product.find(o.productID)
         sum += product.price * o.quantity
       end
       sum
@@ -54,7 +54,6 @@ module CartHelper
         cart = Cart.new
         session[:cart] = cart
       end
-      
       cart
     end
   end
@@ -75,7 +74,6 @@ module CartHelper
       if valid?
         return true
       end
-      
       false
     end
     
