@@ -2,8 +2,8 @@
   general:
     items: アイテム（秒）
     checkout: チェックアウト
-    yes: はい
-    no: なし
+    yes_opt: はい
+    no_opt: なし
     options: オプション
     language: 言語
     theme: テーマ
@@ -71,24 +71,28 @@
     thanks: ありがとう！
   shinfo:
     header: に出荷
-    name: "名前："
+    name: 名前
+    email: メール
     address:
       label: アドレス
-      line1: "1行目："
-      line2: "2行目："
-      line3: "3行目："
-      city: "市："
-      state: "状態："
-      zip: "郵便番号："
-      country: "国："
+      line1: 1行目
+      line2: 2行目
+      line3: 3行目
+      city: 市
+      state: 状態
+      zip: 郵便番号
+      country: 国
     giftwrap: ギフトラップ、これらの項目
     complete_order: 完全命令
     blank:
       name: 名前を入力してください
+      email: あなたのメールアドレスを（最小は%{value}の文字）を入力してください
       line1: 最初のアドレスの行を入力してください。
       city: 市区町村名を入力してください。
       state: 状態名を入力してください
       country: 国の名前を入力してください。
+    invalid:
+      email: 無効なメール
   order:
     msg: 新しい注文が送信されました
     items: "アイテム："

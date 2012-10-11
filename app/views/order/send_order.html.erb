@@ -2,9 +2,56 @@
 <html>
 <head>
   <meta charset="utf-8" />
+  <title>Order Confirmation</title>
 </head>
 
 <body>
-  
+  <h3><%= t('order.msg') %></h3>
+  <hr />
+  <h3><%= t('order.items') %></h3>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t('cartline.item') %></th>
+        <th><%= t('cartline.price') %></th>
+        <th><%= t('cartline.quantity') %></th>
+        <th><%= t('cartline.subtotal') %> (<%= t('general.currency') %>)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart.cartlines.each do |c| %>
+        <% product = Product.find(c.productID) %>
+        <% subtotal = product.price * c.quantity %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.price %></td>
+          <td><%= c.quantity %></td>
+          <td><%= subtotal %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" align="riight"><%= t('order.total') %></td>
+        <td><%= number_to_currency @cart.compute_total_value, :unit => t('general.currency') %></td>
+      </tr>
+    </tfoot>
+  </table>
+  <hr />
+  <h3><%= t('order.shipto') %></h3>
+  <%= @shippingdetails.name %><br />
+  <%= @shippingdetails.line1 %><br />
+  <%= @shippingdetails.line2 %><br />
+  <%= @shippingdetails.line3 %><br />
+  <%= @shippingdetails.city %><br />
+  <%= @shippingdetails.state %><br />
+  <%= @shippingdetails.country %><br />
+  <%= @shippingdetails.zip %><br />
+  <hr />
+  <% if @shippingdetails.giftwrap %>
+  <%= t('order.giftwrap') %> <%= t('general.yes_opt') %>
+  <% else %>
+  <%= t('order.giftwrap') %> <%= t('general.no_opt') %>
+  <% end %>
 </body>
 </html>

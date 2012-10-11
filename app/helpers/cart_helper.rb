@@ -62,14 +62,16 @@ module CartHelper
     include ActiveModel::Validations
     include ActionView::Helpers::TagHelper
     
-    attr_accessor :name, :line1, :line2, :line3, :city, :state, :zip, :country, :giftwrap
+    attr_accessor :name, :line1, :line2, :line3, :city, :state, :zip, :country, :giftwrap, :email
     
     validates_presence_of :name, :message => 'shinfo.blank.name'
     validates_presence_of :line1, :message => 'shinfo.blank.line1'
     validates_presence_of :city, :message => 'shinfo.blank.city'
     validates_presence_of :state, :message => 'shinfo.blank.state'
     validates_presence_of :country, :message => 'shinfo.blank.country'
-    
+    validates :email, :length => { :within => 5..50, :message => 'shinfo.blank.email' },
+                      :format => { :with => /^[^@][\w.-]+@[\w.-]+[.][a-z]{2,4}$/i, :message => 'shinfo.invalid.email' }
+
     def submit_order?(cart)
       if valid?
         mail = Order.send_order(cart, self)
@@ -81,7 +83,15 @@ module CartHelper
     
     def show_error(key)
       if errors.has_key?(key)
-        content_tag(:span, I18n.t(errors.get(key).first), :class => 'form_error')
+        m = ''
+        err = errors.get(key).first
+        if key == :email and err == 'shinfo.blank.email'
+          m = I18n.t(err, :value => 5)
+          
+        else
+          m = I18n.t(err)
+        end
+        content_tag(:span, m, :class => 'form_error')
       end
     end
   end

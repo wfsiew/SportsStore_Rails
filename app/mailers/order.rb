@@ -1,5 +1,5 @@
 class Order < ActionMailer::Base
-  default from: "admin@localhost"
+  default :from => "admin@localhost"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -10,6 +10,6 @@ class Order < ActionMailer::Base
     @cart = cart
     @shippingdetails = shippingdetails
 
-    mail :to => "ben@localhost"
+    mail :to => shippingdetails.email, :subject => t('order.subject')
   end
 end

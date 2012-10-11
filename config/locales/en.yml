@@ -5,8 +5,8 @@ en:
   general:
     items: item(s)
     checkout: Checkout
-    yes: Yes
-    no: No
+    yes_opt: "Yes"
+    no_opt: "No"
     options: Options
     language: Language
     theme: Theme
@@ -74,24 +74,28 @@ en:
     thanks: Thanks!
   shinfo:
     header: Ship to
-    name: "Name:"
+    name: Name
+    email: Email
     address:
       label: Address
-      line1: "Line 1:"
-      line2: "Line 2"
-      line3: "Line 3"
-      city: "City:"
-      state: "State:"
-      zip: "Zip:"
-      country: "Country:"
+      line1: Line 1
+      line2: Line 2
+      line3: Line 3
+      city: City
+      state: State
+      zip: Zip
+      country: Country
     giftwrap: Gift wrap these items
     complete_order: Complete order
     blank:
       name: Please enter a name
+      email: Please enter your email address (minimum is %{value} characters)
       line1: Please enter the first address line
       city: Please enter a city name
       state: Please enter a state name
       country: Please enter a country name
+    invalid:
+      email: Invalid email
   order:
     msg: A new order has been submitted
     items: "Items:"
@@ -109,4 +113,3 @@ en:
     password: Password
     submit: Log In
     error: Incorrect username or password
-  

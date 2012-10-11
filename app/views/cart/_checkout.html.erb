@@ -8,47 +8,54 @@
   
   <table>
     <tr>
-      <td><%= t('shinfo.name') %></td>
+      <td><%= label_tag :name, t('shinfo.name'), :class => 'editor-label' %></td>
       <td>
         <%= text_field_tag :name, @shippingdetails.name %>
         <%= @shippingdetails.show_error(:name) %>
       </td>
     </tr>
     <tr>
-      <td><%= t('shinfo.address.line1') %></td>
+      <td><%= label_tag :email, t('shinfo.email'), :class => 'editor-label' %></td>
+      <td>
+        <%= email_field_tag :email, @shippingdetails.email, :size => 40 %>
+        <%= @shippingdetails.show_error(:email) %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= label_tag :line1, t('shinfo.address.line1'), :class => 'editor-label' %></td>
       <td>
         <%= text_field_tag :line1, @shippingdetails.line1 %>
         <%= @shippingdetails.show_error(:line1) %>
       </td>
     </tr>
     <tr>
-      <td><%= t('shinfo.address.line2') %></td>
+      <td><%= label_tag :line2, t('shinfo.address.line2'), :class => 'editor-label' %></td>
       <td><%= text_field_tag :line2, @shippingdetails.line2 %></td>
     </tr>
     <tr>
-      <td><%= t('shinfo.address.line3') %></td>
+      <td><%= label_tag :line3, t('shinfo.address.line3'), :class => 'editor-label' %></td>
       <td><%= text_field_tag :line3, @shippingdetails.line3 %></td>
     </tr>
     <tr>
-      <td><%= t('shinfo.address.city') %></td>
+      <td><%= label_tag :city, t('shinfo.address.city'), :class => 'editor-label' %></td>
       <td>
         <%= text_field_tag :city, @shippingdetails.city %>
         <%= @shippingdetails.show_error(:city) %>
       </td>
     </tr>
     <tr>
-      <td><%= t('shinfo.address.state') %></td>
+      <td><%= label_tag :state, t('shinfo.address.state'), :class => 'editor-label' %></td>
       <td>
         <%= text_field_tag :state, @shippingdetails.state %>
         <%= @shippingdetails.show_error(:state) %>
       </td>
     </tr>
     <tr>
-      <td><%= t('shinfo.address.zip') %></td>
+      <td><%= label_tag :zip, t('shinfo.address.zip'), :class => 'editor-label' %></td>
       <td><%= text_field_tag :zip, @shippingdetails.zip %></td>
     </tr>
     <tr>
-      <td><%= t('shinfo.address.country') %></td>
+      <td><%= label_tag :country, t('shinfo.address.country'), :class => 'editor-label' %></td>
       <td>
         <%= text_field_tag :country, @shippingdetails.country %>
         <%= @shippingdetails.show_error(:country) %>
@@ -58,7 +65,7 @@
   
   <h3><%= t('general.options') %></h3>
   <label>
-    <%= check_box_tag :giftwrap %>
+    <%= check_box_tag :giftwrap, '1', @shippingdetails.giftwrap %>
     <%= label_tag :giftwrap, t('shinfo.giftwrap') %>
   </label>
   

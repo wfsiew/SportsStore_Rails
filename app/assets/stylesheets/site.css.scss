@@ -167,3 +167,7 @@ DIV#lang A {
   color: #D8000C;
   background-color: #FFBABA;
 }
+
+.editor-label:after {
+  content: ":";
+}

@@ -42,6 +42,7 @@ class CartController < ApplicationController
       end
       
       @shippingdetails.name = params[:name]
+      @shippingdetails.email = params[:email]
       @shippingdetails.line1 = params[:line1]
       @shippingdetails.line2 = params[:line2]
       @shippingdetails.line3 = params[:line3]
