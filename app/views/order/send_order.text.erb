@@ -1,0 +1,29 @@
+﻿<%= t('order.msg') %>
+
+---
+<%= t('order.items') %>
+
+<% @cart.cartlines.each do |c| %>
+  <% product = Product.find(c.productID) %>
+  <% subtotal = product.price * c.quantity %>
+<%= c.quantity %> x <%= product.name %> (<%= t('order.subtotal') %> <%= number_to_currency subtotal, :unit => t('general.currency') %>)
+<% end %>
+<%= t('order.total') %> <%= number_to_currency @cart.compute_total_value, :unit => t('general.currency') %>
+
+---
+<%= t('order.shipto') %>
+
+<%= @shippingdetails.name %>
+<%= @shippingdetails.line1 %>
+<%= @shippingdetails.line2 %>
+<%= @shippingdetails.line3 %>
+<%= @shippingdetails.city %>
+<%= @shippingdetails.state %>
+<%= @shippingdetails.country %>
+<%= @shippingdetails.zip %>
+---
+<% if @shippingdetails.giftwrap %>
+<%= t('order.giftwrap') %> <%= t('general.yes') %>
+<% else %>
+<%= t('order.giftwrap') %> <%= t('general.no') %>
+<% end %>

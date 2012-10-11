@@ -51,7 +51,7 @@ class CartController < ApplicationController
       @shippingdetails.country = params[:country]
       @shippingdetails.giftwrap = params[:giftwrap] == '1' ? true : false
       
-      if @shippingdetails.submit_order?
+      if @shippingdetails.submit_order?(@cart)
         @cart.clear
         
         respond_to do |fmt|

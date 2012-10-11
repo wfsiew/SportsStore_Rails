@@ -70,8 +70,10 @@ module CartHelper
     validates_presence_of :state, :message => 'shinfo.blank.state'
     validates_presence_of :country, :message => 'shinfo.blank.country'
     
-    def submit_order?
+    def submit_order?(cart)
       if valid?
+        mail = Order.send_order(cart, self)
+        mail.deliver
         return true
       end
       false

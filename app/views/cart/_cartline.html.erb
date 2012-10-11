@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     <% @cart.cartlines.each do |line| %>
-      <% product = ProductHelper.get_product(line.productID) %>
+      <% product = Product.find(line.productID) %>
       <tr>
         <td align="center"><%= line.quantity %></td>
         <td align="left"><%= product.name %></td>

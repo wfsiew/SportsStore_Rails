@@ -10,47 +10,47 @@
     <tr>
       <td><%= t('shinfo.name') %></td>
       <td>
-        <%= text_field_tag :name %>
+        <%= text_field_tag :name, @shippingdetails.name %>
         <%= @shippingdetails.show_error(:name) %>
       </td>
     </tr>
     <tr>
       <td><%= t('shinfo.address.line1') %></td>
       <td>
-        <%= text_field_tag :line1 %>
+        <%= text_field_tag :line1, @shippingdetails.line1 %>
         <%= @shippingdetails.show_error(:line1) %>
       </td>
     </tr>
     <tr>
       <td><%= t('shinfo.address.line2') %></td>
-      <td><%= text_field_tag :line2 %></td>
+      <td><%= text_field_tag :line2, @shippingdetails.line2 %></td>
     </tr>
     <tr>
       <td><%= t('shinfo.address.line3') %></td>
-      <td><%= text_field_tag :line3 %></td>
+      <td><%= text_field_tag :line3, @shippingdetails.line3 %></td>
     </tr>
     <tr>
       <td><%= t('shinfo.address.city') %></td>
       <td>
-        <%= text_field_tag :city %>
+        <%= text_field_tag :city, @shippingdetails.city %>
         <%= @shippingdetails.show_error(:city) %>
       </td>
     </tr>
     <tr>
       <td><%= t('shinfo.address.state') %></td>
       <td>
-        <%= text_field_tag :state %>
+        <%= text_field_tag :state, @shippingdetails.state %>
         <%= @shippingdetails.show_error(:state) %>
       </td>
     </tr>
     <tr>
       <td><%= t('shinfo.address.zip') %></td>
-      <td><%= text_field_tag :zip %></td>
+      <td><%= text_field_tag :zip, @shippingdetails.zip %></td>
     </tr>
     <tr>
       <td><%= t('shinfo.address.country') %></td>
       <td>
-        <%= text_field_tag :country %>
+        <%= text_field_tag :country, @shippingdetails.country %>
         <%= @shippingdetails.show_error(:country) %>
       </td>
     </tr>
