@@ -113,3 +113,6 @@ en:
     password: Password
     submit: Log In
     error: Incorrect username or password
+    access_denied: Please log in to continue
+    login_success: Logged in successfully
+    logout_success: You successfully logged out

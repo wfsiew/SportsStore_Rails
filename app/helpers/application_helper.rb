@@ -15,39 +15,39 @@ module ApplicationHelper
     end
 
     def item_message
-      Utils.item_message(@total, @pagenum, @pagesize)
+      Utils.item_message(total, pagenum, pagesize)
     end
 
     def lower_bound
-      (@pagenum - 1) * @pagesize
+      (pagenum - 1) * pagesize
     end
 
     def upper_bound
-      upperbound = @pagenum * @pagesize
-      if @total < upperbound
-      upperbound = @total
+      upperbound = pagenum * pagesize
+      if total < upperbound
+      upperbound = total
       end
 
       upperbound
     end
 
-    def has_next
-      @total > upper_bound ? true : false
+    def has_next?
+      total > upper_bound ? true : false
     end
 
-    def has_prev
+    def has_prev?
       lower_bound > 0 ? true : false
     end
 
     def total_pages
-      (Float(@total) / @pagesize).ceil
+      (Float(total) / pagesize).ceil
     end
     
     private
     
     def set_pagesize(pagesize)
-      if @total < pagesize || pagesize < 1
-        @pagesize = @total
+      if total < pagesize || pagesize < 1
+        pagesize = total
 
       else
         @pagesize = pagesize

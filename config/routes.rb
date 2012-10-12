@@ -20,9 +20,11 @@ Sportsstore::Application.routes.draw do
     match 'product/edit(/:id)' => 'product#edit', :as => :product_edit, :via => :get
     match 'product/update(/:id)' => 'product#update', :as => :product_update, :via => :put
     match 'product/delete' => 'product#destroy', :as => :product_delete, :via => :delete
+    
+    match 'login' => 'admin#new', :as => :login
+    match 'auth' => 'admin#create', :as => :auth
+    match 'logout' => 'admin#destroy', :as => :logout
   end
-  
-  match 'logout' => 'admin#logout', :as => :logout
   
   # refer to http://guides.rubyonrails.org/routing.html
 

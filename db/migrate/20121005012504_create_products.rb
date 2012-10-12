@@ -1,11 +1,11 @@
 class CreateProducts < ActiveRecord::Migration
   def change
-    create_table :products do |t|
+    create_table :product, :id => false, :force => false do |t|
       t.primary_key :productID
-      t.string :name
-      t.string :description
-      t.float :price
-      t.string :category
+      t.string :name, :null => false
+      t.string :description, :null => false
+      t.float :price, :null => false
+      t.string :category, :null => false
       t.binary :imagedata
       t.string :imagemimetype
     end

@@ -1,4 +1,5 @@
-class Admin::ProductController < ApplicationController
+class Admin::ProductController < Admin::AdminController
+  before_filter :authenticate
   
   def index
     @products = Product.all

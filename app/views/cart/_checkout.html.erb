@@ -3,7 +3,7 @@
   <p class="form_error"><%= @cartempty %></p>
 <% end %>
 
-<%= form_for(cart_checkout_path) do %>
+<%= form_tag(cart_checkout_path) do %>
   <h3><%= t('shinfo.header') %></h3>
   
   <table>

@@ -36,8 +36,11 @@ Sportsstore::Application.configure do
   config.assets.debug = true
   
   ActionMailer::Base.smtp_settings = {
-    :address => 'localhost',
-    :enable_starttls_auto => false,
-    :port => 25
+    :address => 'smtp.gmail.com',
+    :enable_starttls_auto => true,
+    :port => 587,
+    :authentication => :login,
+    :user_name => 'dixonsiew@gmail.com',
+    :password => '99wad073'
   }
 end

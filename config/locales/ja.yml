@@ -110,4 +110,7 @@
     password: パスワード
     submit: ログイン
     error: ユーザーネームまたはパスワードが間違って
+    access_denied: 続けるには、ログインしてください
+    login_success: 正常にログイン
+    logout_success: あなたが正常にログアウト
   
