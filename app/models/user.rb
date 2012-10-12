@@ -2,7 +2,7 @@ require 'digest'
 
 class User < ActiveRecord::Base
   attr_accessible :username, :pwd, :pwd_confirmation
-  attr_accessor :username, :pwd
+  attr_accessor :pwd
   
   self.table_name = 'user'
   
@@ -15,14 +15,15 @@ class User < ActiveRecord::Base
                        
   before_save :encrypt_new_password
                        
-  def self.authenticate?(username, password)
-    if authenticated?(password)
-      return true
+  def self.authenticate(username, password)
+    user = find_by_username(username)
+    if user && user.authenticated?(password)
+      return username
     end
   end
   
-  def self.authenticated?(password)
-    password == 'user123'
+  def authenticated?(password)
+    self.password == encrypt(password)
   end
   
   protected
@@ -33,7 +34,7 @@ class User < ActiveRecord::Base
   end
   
   def password_required?
-    password.blank? || pwd.present?
+    self.password.blank? || pwd.present?
   end
   
   def encrypt(string)

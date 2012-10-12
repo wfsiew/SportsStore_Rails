@@ -49,13 +49,29 @@ ActiveRecord::Schema.define(:version => 20121012015547) do
   add_index "employee", ["Designation"], :name => "Designation"
 
   create_table "product", :primary_key => "productID", :force => true do |t|
-    t.string "name",          :null => false
-    t.string "description",   :null => false
-    t.float  "price",         :null => false
-    t.string "category",      :null => false
-    t.binary "imagedata"
-    t.string "imagemimetype"
+    t.string "name",          :limit => 100,      :null => false
+    t.string "description",   :limit => 500,      :null => false
+    t.float  "price",                             :null => false
+    t.string "category",      :limit => 50,       :null => false
+    t.binary "imagedata",     :limit => 16777215
+    t.string "imagemimetype", :limit => 50
   end
+
+  create_table "product_", :primary_key => "Id", :force => true do |t|
+    t.string  "Name"
+    t.string  "Category"
+    t.boolean "Discontinued"
+  end
+
+  create_table "setting", :force => true do |t|
+    t.integer "Designation"
+    t.float   "dailyAllowance", :null => false
+    t.float   "epf",            :null => false
+    t.float   "socso",          :null => false
+    t.float   "incomeTax",      :null => false
+  end
+
+  add_index "setting", ["Designation"], :name => "Designation", :unique => true
 
   create_table "user", :force => true do |t|
     t.string "username", :limit => 50, :null => false

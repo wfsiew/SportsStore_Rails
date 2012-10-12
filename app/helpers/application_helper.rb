@@ -25,7 +25,7 @@ module ApplicationHelper
     def upper_bound
       upperbound = pagenum * pagesize
       if total < upperbound
-      upperbound = total
+        upperbound = total
       end
 
       upperbound
@@ -47,7 +47,7 @@ module ApplicationHelper
     
     def set_pagesize(pagesize)
       if total < pagesize || pagesize < 1
-        pagesize = total
+        @pagesize = total
 
       else
         @pagesize = pagesize

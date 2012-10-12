@@ -2,13 +2,14 @@ class Admin::AdminController < ApplicationController
   layout 'productadmin'
   
   def create
-    if User.authenticate?(params[:username], params[:password])
-      session[:user_id] = params[:username]
+    user = User.authenticate(params[:username], params[:password])
+    if user.present?
+      session[:user_id] = user
       redirect_to admin_product_path, :notice => t('login.login_success')
       
     else
       flash.now[:alert] = t('login.error')
-      render 'new'
+      render :action => 'new'
     end
   end
   
