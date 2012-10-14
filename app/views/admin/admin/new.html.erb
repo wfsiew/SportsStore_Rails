@@ -1,17 +1,25 @@
 <% @title = t('login.title') %>
 <h1><%= t('login.header') %></h1>
 
-<p><%= t('login.msg') %></p>
-
-<%= content_tag :div, notice, :class => 'notice' if notice.present? %>
-<%= content_tag :div, alert, :class => 'errorblock' if alert.present? %>
-
-<%= form_tag(admin_auth_path) do %>
-  <%= label_tag :username, t('login.username'), :class => 'editor-label' %><br />
-  <%= text_field_tag :username, nil, :class => 'text-box' %><br />
-  <%= label_tag :password, t('login.password'), :class => 'editor-label' %><br />
-  <%= password_field_tag :password, nil, :class => 'text-box' %><br />
-  <p>
-    <%= submit_tag t('login.submit') %>
-  </p>
-<% end %>
+<div class="login_box">
+  <p class="msg"><%= t('login.msg') %></p>
+  
+  <%= content_tag :div, notice, :class => 'notice' if notice.present? %>
+  <%= content_tag :div, alert, :class => 'errorblock' if alert.present? %>
+  
+  <%= form_tag(admin_auth_path) do %>
+    <div class="row">
+      <%= label_tag :username, t('login.username'), :class => 'editor-label' %>
+      <%= text_field_tag :username, nil, :class => 'text-box' %>
+    </div>
+    <div class="row">
+      <%= label_tag :password, t('login.password'), :class => 'editor-label' %>
+      <%= password_field_tag :password, nil, :class => 'text-box' %>
+    </div>
+    <p class="row_login_btn">
+      <%= submit_tag t('login.submit') %>
+      <%= link_to 'EN', url_for(:locale => 'en'), :title => 'English' %> |
+      <%= link_to 'JA', url_for(:locale => 'ja'), :title => 'Japanese' %>
+    </p>
+  <% end %>
+</div>

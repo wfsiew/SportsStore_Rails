@@ -1,0 +1,29 @@
+<div id="page3" data-role="page" data-theme="<%= theme %>">
+  <div data-role="header" data-position="fixed" data-theme="<%= theme %>">
+    <%= link_to t('cartline.continue_shopping'), @returnUrl, 'data-role' => 'button', 'data-transition' => 'slide', 'data-inline' => 'true', 'data-mini' => 'true' %>
+    <h1><%= t('cart.title') %></h1>
+  </div>
+  <div data-role="content" class="content">
+    <ul data-role="listview" data-split-icon="delete" data-split-theme="<%= theme %>">
+      <% @cart.cartlines.each do |line| %>
+        <% product = Product.find(line.productID) %>
+        <li>
+          <a href="#">
+            <p>
+              <b>[<%= line.quantity %>]</b> <%= product.name %> <%= number_to_currency product.price, :unit => t('general.currency') %>
+              <b>[<%= number_to_currency(line.quantity * product.price, :unit => t('general.currency')) %>]</b>
+            </p>
+          </a>
+          <%= link_to t('cartline.remove'), mobile_cart_remove_path(:id => product.productID) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div data-role="footer" data-position="fixed" data-theme="<%= theme %>">
+    <h1>
+      <%= t('cartline.total') %>
+      <%= number_to_currency @cart.compute_total_value, :unit => t('general.currency') %>
+      <%= link_to t('cartline.checkoutnow'), mobile_cart_checkout_path %>
+    </h1>
+  </div>
+</div>

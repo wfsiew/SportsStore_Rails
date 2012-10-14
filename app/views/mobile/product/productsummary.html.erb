@@ -1,0 +1,14 @@
+<div id="page2" data-role="page" data-theme="<%= theme %>">
+  <div data-role="header" data-position="fixed" data-theme="<%= theme %>">
+    <%= link_to 'Home', mobile_product_path, 'data-role' => 'button', 'data-transition' => 'slide' %>
+    <h1><%= @category %></h1>
+    <a id="cmdrefresh" href="#" data-role="button"><%= t('general.refresh') %></a>
+  </div>
+  <div id="page2ct" data-role="content" class="content">
+    <ul data-role="listview" data-split-icon="plus" data-split-theme="<%= theme %>">
+      <%= render 'productsummarylist' %>
+    </ul>
+  </div>
+  <%= hidden_field_tag :category, @category %>
+  <%= hidden_field_tag :returnUrl, @returnUrl %>
+</div>

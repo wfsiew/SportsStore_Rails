@@ -1,0 +1,15 @@
+<% @products.each do |p| %>
+  <li>
+    <a href="#">
+      <% if p.imagemimetype.present? %>
+        <div style="float: left; margin-right: 20px">
+          <%= image_tag image_path(:id => p.productID), { :width => 45, :height => 45 } %>
+        </div>
+      <% end %>
+      <h3><%= p.name %></h3>
+      <p><%= p.description %></p>
+      <p><%= number_to_currency p.price, :unit => t('general.currency') %></p>
+    </a>
+    <%= link_to t('cart.add_to_cart2'), mobile_cart_add_path(:id => p.productID) %>
+  </li>
+<% end %>

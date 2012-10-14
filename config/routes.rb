@@ -26,6 +26,19 @@ Sportsstore::Application.routes.draw do
     match 'logout' => 'admin#destroy', :as => :logout
   end
   
+  namespace :mobile do
+    match 'product' => 'product#index', :as => :product, :via => :get
+    match 'product/index(/:page)' => 'product#index_paged', :as => :product_paged, :via => :get
+    match 'product(/:category)' => 'product#category', :as => :category, :via => :get
+    match 'product(/:category(/:page))' => 'product#category_paged', :as => :category_paged, :via => :get
+    match 'product/list(/:page)' => 'product#list_paged', :as => :list_paged, :via => :post
+    
+    match 'cart' => 'cart#index', :as => :cart, :via => :get
+    match 'cart/add(/:id)' => 'cart#add', :as => :cart_add, :via => :get
+    match 'cart/remove(/:id)' => 'cart#remove', :as => :cart_remove, :via => :get
+    match 'cart/checkout' => 'cart#checkout', :as => :cart_checkout, :via => [:get, :post]
+  end
+  
   # refer to http://guides.rubyonrails.org/routing.html
 
   # The priority is based upon order of creation:

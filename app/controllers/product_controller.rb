@@ -72,7 +72,7 @@ class ProductController < ApplicationController
   
   def get_products(category="", pagenum=1)
     categories = ProductHelper.get_categories
-    if category.empty?
+    if category.blank?
       dic = ProductHelper.get_all(pagenum, 4)
       
     else
@@ -85,7 +85,7 @@ class ProductController < ApplicationController
   end
   
   def get_page
-    if params[:page] != nil
+    if params[:page].present?
       return params[:page].to_i
     end
     
