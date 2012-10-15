@@ -1,5 +1,5 @@
 var productsummary = (function() {
-	var url = '/sportsstore/mobile/product/list/';
+	var url = '/mobile/product/list/';
 	
 	function pageInit() {
 		$('#page2').live('pageinit', init);
@@ -45,7 +45,7 @@ var productsummary = (function() {
 
 	function loadContent(page, append) {
 		var category = $('#category').val();
-		var returnUrl = $('#returnurl').val();
+		var returnUrl = $('#returnUrl').val();
 		
 		var data = {returnUrl: returnUrl};
 		if (category != '')
