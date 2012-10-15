@@ -1,5 +1,5 @@
 Sportsstore::Application.routes.draw do
-  root :to => 'product#index'
+  root :to => 'home#index'
   
   match 'product' => 'product#index', :as => :product, :via => :get
   match 'product/index(/:page)' => 'product#index_paged', :as => :product_paged, :via => :get
