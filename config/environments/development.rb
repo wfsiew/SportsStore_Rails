@@ -40,7 +40,7 @@ Sportsstore::Application.configure do
     :enable_starttls_auto => true,
     :port => 587,
     :authentication => :login,
-    :user_name => 'dixonsiew@gmail.com',
-    :password => '99wad073'
+    :user_name => 'username',
+    :password => 'pwd'
   }
 end
