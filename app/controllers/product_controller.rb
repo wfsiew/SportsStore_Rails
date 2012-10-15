@@ -73,10 +73,10 @@ class ProductController < ApplicationController
   def get_products(category="", pagenum=1)
     categories = ProductHelper.get_categories
     if category.blank?
-      dic = ProductHelper.get_all(pagenum, 4)
+      dic = ProductHelper.get_all(pagenum, ApplicationHelper::Pager.default_page_size)
       
     else
-      dic = ProductHelper.get_by_category(category, pagenum, 4)
+      dic = ProductHelper.get_by_category(category, pagenum, ApplicationHelper::Pager.default_page_size)
     end
     
     products = dic[:list]

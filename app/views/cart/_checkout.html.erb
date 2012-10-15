@@ -1,6 +1,6 @@
 <%= content_tag(:h2, t('checkout.header')) %>
 <% if @cartempty.present? %>
-  <%= content_tag(:p, @cartempty, :class => 'form_error' %>
+  <%= content_tag(:p, @cartempty, :class => 'form_error') %>
 <% end %>
 
 <%= form_tag(cart_checkout_path) do %>

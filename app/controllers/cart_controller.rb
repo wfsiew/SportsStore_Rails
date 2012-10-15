@@ -32,11 +32,11 @@ class CartController < ApplicationController
   end
   
   def checkout
+    @cart = CartHelper::Cart.cart(session)
+    @categories = ProductHelper.get_categories
     @shippingdetails = CartHelper::ShippingDetails.new
     
     if request.post?
-      @cart = CartHelper::Cart.cart(session)
-      @categories = ProductHelper.get_categories
       if @cart.cartlines.blank?
         @cartempty = t('cart.empty')
       end

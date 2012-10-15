@@ -1,5 +1,5 @@
 class Mobile::ProductController < Mobile::MobileController
-  layout 'mobileproductcontent', :except => [:index]
+  layout 'mobileproductcontent', :except => [:index, :list_paged]
   
   def index
     @categories = ProductHelper.get_categories
@@ -40,20 +40,21 @@ class Mobile::ProductController < Mobile::MobileController
   end
   
   def list_paged
-    @category = params[:category]
-    @returnUrl = params[:returnUrl]
+    page = get_page
+    category = params[:category]
+    #returnUrl = params[:returnUrl]
     if category.blank?
-      dic = ProductHelper.get_all(pagenum, 10)
+      dic = ProductHelper.get_all(page, 10)
       
     else
-      dic = ProductHelper.get_by_category(@category, pagenum, 10)
+      dic = ProductHelper.get_by_category(category, page, ApplicationHelper::Pager.default_page_size)
     end
     
     @products = dic[:list]
     
     respond_to do |fmt|
-      fmt.html { render 'productsummarylist' }
-      fmt.json { render :json => dic }
+      fmt.html { render :partial => 'productsummarylist', :layout => false }
+      fmt.json { render :json => @products }
     end
   end
   
@@ -61,10 +62,10 @@ class Mobile::ProductController < Mobile::MobileController
   
   def get_products(category="", pagenum=1)
     if category.blank?
-      dic = ProductHelper.get_all(pagenum, 10)
+      dic = ProductHelper.get_all(pagenum, ApplicationHelper::Pager.default_page_size)
       
     else
-      dic = ProductHelper.get_by_category(category, pagenum, 10)
+      dic = ProductHelper.get_by_category(category, pagenum, ApplicationHelper::Pager.default_page_size)
     end
     
     products = dic[:list]

@@ -3,6 +3,8 @@ module ApplicationHelper
   class Pager
     attr_accessor :total, :pagenum
     attr_reader :pagesize
+    
+    @@default_page_size = 10
 
     def initialize(total, pagenum, pagesize)
       @total = total
@@ -41,6 +43,10 @@ module ApplicationHelper
 
     def total_pages
       (Float(total) / pagesize).ceil
+    end
+    
+    def self.default_page_size
+      @@default_page_size
     end
     
     private
