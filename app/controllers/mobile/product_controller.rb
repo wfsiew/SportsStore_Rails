@@ -6,7 +6,7 @@ class Mobile::ProductController < Mobile::MobileController
     @cart = CartHelper::Cart.cart(session)
     
     respond_to do |fmt|
-      fmt.html { render 'productspage' }
+      fmt.html { render 'productspage', :layout => false }
       fmt.json { render :json => [@cart, @categories] }
     end
   end
