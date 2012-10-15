@@ -1,0 +1,10 @@
+<div id="page5" data-role="page" data-theme="<%= theme %>">
+  <div data-role="header" data-position="fixed" data-theme="<%= theme %>">
+    <%= link_to 'Home', mobile_product_path, 'data-role' => 'button', 'data-transition' => 'slide', 'data-inline' => 'true', 'data-mini' => 'true' %>
+    <%= content_tag(:h1, t('checkout.complete.title')) %>
+  </div>
+  <div data-role="content" class="content">
+    <%= content_tag(:h2, t('checkout.thanks')) %>
+    <%= t('checkout.complete.msg') %>
+  </div>
+</div>

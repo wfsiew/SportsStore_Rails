@@ -1,10 +1,10 @@
-<h2><%= t('checkout.header') %></h2>
+<%= content_tag(:h2, t('checkout.header')) %>
 <% if @cartempty.present? %>
-  <p class="form_error"><%= @cartempty %></p>
+  <%= content_tag(:p, @cartempty, :class => 'form_error' %>
 <% end %>
 
 <%= form_tag(cart_checkout_path) do %>
-  <h3><%= t('shinfo.header') %></h3>
+  <%= content_tag(:h3, t('shinfo.header')) %>
   
   <table>
     <tr>
@@ -63,7 +63,7 @@
     </tr>
   </table>
   
-  <h3><%= t('general.options') %></h3>
+  <%= content_tag(:h3, t('general.options')) %>
   <label>
     <%= check_box_tag :giftwrap, '1', @shippingdetails.giftwrap %>
     <%= label_tag :giftwrap, t('shinfo.giftwrap') %>

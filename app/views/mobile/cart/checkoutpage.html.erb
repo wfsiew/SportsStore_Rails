@@ -1,0 +1,66 @@
+<div id="page4" data-role="page" data-theme="<%= theme %>" data-add-back-btn="true">
+  <div data-role="header" data-position="fixed" data-theme="<%= theme %>">
+      <a data-role="button" data-icon="arrow-l" data-rel="back" data-inline="true" data-mini="true">Back</a>
+      <%= content_tag(:h1, t('checkout.title')) %>
+  </div>
+  <div data-role="content" class="content">
+    <% if @cartempty.present? %>
+      <%= content_tag(:p, @cartempty, :class => 'form_error') %>
+    <% end %>
+    <%= form_tag(mobile_cart_checkout_path) do %>
+      <%= content_tag(:h3, t('shinfo.header')) %>
+      <div data-role="fieldcontain">
+        <%= label_tag :name, t('shinfo.name') %>
+        <%= text_field_tag :name, @shippingdetails.name, 'data-mini' => 'true' %>
+        <%= @shippingdetails.show_error(:name) %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= label_tag :email, t('shinfo.email') %>
+        <%= email_field_tag :email, @shippingdetails.email, 'data-mini' => 'true' %>
+        <%= @shippingdetails.show_error(:email) %>
+      </div>
+      
+      <%= content_tag(:h3, t('shinfo.address.label')) %>
+      <div data-role="fieldcontain">
+        <%= label_tag :line1, t('shinfo.address.line1') %>
+        <%= text_field_tag :line1, @shippingdetails.line1, 'data-mini' => 'true' %>
+        <%= @shippingdetails.show_error(:line1) %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= label_tag :line2, t('shingo.address.line2') %>
+        <%= text_field_tag :line2, @shippingdetails.line2, 'data-mini' => 'true' %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= label_tag :line3, t('shinfo.address.line3') %>
+        <%= text_field_tag :line3, @shippingdetails.line3, 'data-mini' => 'true' %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= label_tag :city, t('shinfo.address.city') %>
+        <%= text_field_tag :city, @shippingdetails.city, 'data-mini' => 'true' %>
+        <%= @shippingdetails.show_error(:city) %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= label_tag :state, t('shinfo.address.state') %>
+        <%= text_field_tag :state, @shippingdetails.state, 'data-mini' => 'true' %>
+        <%= @shippingdetails.show_error(:state) %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= label_tag :zip, t('shinfo.address.zip') %>
+        <%= text_field_tag :zip, @shippingdetails.zip, 'data-mini' => 'true' %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= label_tag :country, t('shinfo.address.country') %>
+        <%= text_field_tag :country, @shippingdetails.country, 'data-mini' => 'true' %>
+        <%= @shippingdetails.show_error(:country) %>
+      </div>
+      
+      <%= content_tag(:h3, t('general.options')) %>
+      <div data-role="fieldcontain">
+        <%= check_box_tag :giftwrap, '1', @shippingdetails.giftwrap, 'data-mini' => 'true' %>
+        <%= label_tag :giftwrap, t('shinfo.giftwrap'), 'data-inline' => 'true' %>
+      </div>
+      
+      <%= submit_tag t('shinfo.complete_order'), 'data-role' => 'button', 'data-mini' => 'true' %>
+    <% end %>
+  </div>
+</div>
