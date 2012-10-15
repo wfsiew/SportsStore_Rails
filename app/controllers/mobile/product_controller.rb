@@ -1,12 +1,13 @@
 class Mobile::ProductController < Mobile::MobileController
   layout 'mobileproductcontent', :except => [:index]
+  layout false, :only => [:index]
   
   def index
     @categories = ProductHelper.get_categories
     @cart = CartHelper::Cart.cart(session)
     
     respond_to do |fmt|
-      fmt.html { render 'productspage', :layout => false }
+      fmt.html { render 'productspage' }
       fmt.json { render :json => [@cart, @categories] }
     end
   end
@@ -16,11 +17,8 @@ class Mobile::ProductController < Mobile::MobileController
     dic = get_products("", page)
     @products = dic[:products]
     @returnUrl = dic[:returnUrl]
-    lb = dic[:block]
     
-    respond_to do |fmt|
-      lb.call(fmt)
-    end
+    respond_productsummary(dic)
   end
   
   def category
@@ -28,11 +26,8 @@ class Mobile::ProductController < Mobile::MobileController
     @products = dic[:products]
     @category = dic[:category]
     @returnUrl = dic[:returnUrl]
-    lb = dic[:block]
     
-    respond_to do |fmt|
-      lb.call(fmt)
-    end
+    respond_productsummary(dic)
   end
   
   def category_paged
@@ -41,11 +36,8 @@ class Mobile::ProductController < Mobile::MobileController
     @products = dic[:products]
     @category = dic[:category]
     @returnUrl = dic[:returnUrl]
-    lb = dic[:block]
     
-    respond_to do |fmt|
-      lb.call(fmt)
-    end
+    respond_productsummary(dic)
   end
   
   def list_paged
@@ -78,12 +70,14 @@ class Mobile::ProductController < Mobile::MobileController
     
     products = dic[:list]
     session[:returnUrl] = request_path
-    lb = lambda do |fmt|
+    { :products => products, :returnUrl => session[:returnUrl], :category => category }
+  end
+  
+  def respond_productsummary(o)
+    respond_to do |fmt|
       fmt.html { render 'productsummary' }
-      fmt.json { render :json => dic}
+      fmt.json { render :json => o }
     end
-    
-    { :products => products, :returnUrl => session[:returnUrl], :category => category, :block => lb }
   end
   
   def get_page
