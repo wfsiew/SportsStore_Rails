@@ -84,7 +84,7 @@ module CartHelper
     def show_error(key)
       if errors.has_key?(key)
         m = ''
-        err = errors.get(key).first
+        err = errors[key].first
         if key == :email and err == 'shinfo.blank.email'
           m = I18n.t(err, :value => 5)
           

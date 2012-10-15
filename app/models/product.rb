@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
   
   def show_error(key)
     if errors.has_key?(key)
-      content_tag(:span, I18n.t(errors.get(key).first), :class => 'form_error')
+      content_tag(:span, I18n.t(errors[key].first), :class => 'form_error')
     end
   end
 end
