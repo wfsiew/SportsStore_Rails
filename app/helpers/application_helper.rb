@@ -40,9 +40,6 @@ module ApplicationHelper
     end
 
     def total_pages
-      puts "================="
-      puts total
-      puts pagesize
       (Float(total) / pagesize).ceil
     end
     
