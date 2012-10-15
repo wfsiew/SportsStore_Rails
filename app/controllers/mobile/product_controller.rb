@@ -4,6 +4,7 @@ class Mobile::ProductController < Mobile::MobileController
   def index
     @categories = ProductHelper.get_categories
     @cart = CartHelper::Cart.cart(session)
+    session[:returnUrl] = request_path
     
     respond_to do |fmt|
       fmt.html { render 'productspage', :layout => false }
@@ -15,7 +16,8 @@ class Mobile::ProductController < Mobile::MobileController
     page = get_page
     dic = get_products("", page)
     @products = dic[:products]
-    @returnUrl = dic[:returnUrl]
+    @returnUrl = request_path
+    session[:returnUrl] = @returnUrl
     
     respond_productsummary(dic)
   end
@@ -24,7 +26,8 @@ class Mobile::ProductController < Mobile::MobileController
     dic = get_products(params[:category], 1)
     @products = dic[:products]
     @category = dic[:category]
-    @returnUrl = dic[:returnUrl]
+    @returnUrl = request_path
+    session[:returnUrl] = @returnUrl
     
     respond_productsummary(dic)
   end
@@ -34,7 +37,8 @@ class Mobile::ProductController < Mobile::MobileController
     dic = get_products(params[:category], page)
     @products = dic[:products]
     @category = dic[:category]
-    @returnUrl = dic[:returnUrl]
+    @returnUrl = request_path
+    session[:returnUrl] = @returnUrl
     
     respond_productsummary(dic)
   end
@@ -42,7 +46,6 @@ class Mobile::ProductController < Mobile::MobileController
   def list_paged
     page = get_page
     category = params[:category]
-    #returnUrl = params[:returnUrl]
     if category.blank?
       dic = ProductHelper.get_all(page, 10)
       
@@ -70,7 +73,7 @@ class Mobile::ProductController < Mobile::MobileController
     
     products = dic[:list]
     session[:returnUrl] = request_path
-    { :products => products, :returnUrl => session[:returnUrl], :category => category }
+    { :products => products, :category => category }
   end
   
   def respond_productsummary(o)
@@ -86,6 +89,10 @@ class Mobile::ProductController < Mobile::MobileController
     end
     
     return 1
+  end
+  
+  def get_return_url
+    session[:returnUrl].blank? ? mobile_product_path : session[:returnUrl]
   end
   
 end
