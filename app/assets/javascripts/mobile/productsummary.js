@@ -68,7 +68,7 @@ var productsummary = (function() {
 					else
 						$('#page2ct > ul').html(result);
 
-					$('#page2ct').trigger('pagecreate');
+					$('#page2ct').trigger('pageinit');
 					$('#page2ct > ul').listview('refresh');
 				}
 				
