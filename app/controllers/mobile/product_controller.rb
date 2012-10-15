@@ -1,13 +1,12 @@
 class Mobile::ProductController < Mobile::MobileController
   layout 'mobileproductcontent', :except => [:index]
-  layout false, :only => [:index]
   
   def index
     @categories = ProductHelper.get_categories
     @cart = CartHelper::Cart.cart(session)
     
     respond_to do |fmt|
-      fmt.html { render 'productspage' }
+      fmt.html { render 'productspage', :layout => false }
       fmt.json { render :json => [@cart, @categories] }
     end
   end
