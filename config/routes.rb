@@ -19,7 +19,7 @@ Sportsstore::Application.routes.draw do
     match 'product/create' => 'product#create', :as => :product_create, :via => :post
     match 'product/edit(/:id)' => 'product#edit', :as => :product_edit, :via => :get
     match 'product/update(/:id)' => 'product#update', :as => :product_update, :via => :put
-    match 'product/delete' => 'product#destroy', :as => :product_delete, :via => :delete
+    match 'product/delete(/:id)' => 'product#destroy', :as => :product_delete, :via => [:get, :delete]
     
     match 'login' => 'admin#new', :as => :login
     match 'auth' => 'admin#create', :as => :auth

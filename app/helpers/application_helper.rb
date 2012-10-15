@@ -40,13 +40,16 @@ module ApplicationHelper
     end
 
     def total_pages
+      puts "================="
+      puts total
+      puts pagesize
       (Float(total) / pagesize).ceil
     end
     
     private
     
     def set_pagesize(pagesize)
-      if total < pagesize || pagesize < 1
+      if (total < pagesize || pagesize < 1) && total > 0
         @pagesize = total
 
       else
