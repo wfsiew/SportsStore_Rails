@@ -43,7 +43,7 @@ class ProductControllerTest < ActionController::TestCase
   end
   
   test "should get category_paged" do
-    get :category_paged, {'category' => @product.category, 'page' => 1}
+    get :category_paged, { 'category' => @product.category, 'page' => 1 }
     assert_response :success
     assert_template 'productspage'
     assert_not_nil assigns(:cart)
