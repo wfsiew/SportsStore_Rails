@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  productID: 
-  name: MyString
-  description: MyString
-  price: 1.5
-  category: MyString
+  productID: 1
+  name: Soccer ball
+  description: FIFA-approved size and weight
+  price: 26.7
+  category: Soccer
   imagedata: 
-  imagemimetype: MyString
+  imagemimetype: 
 
 two:
-  productID: 
-  name: MyString
-  description: MyString
-  price: 1.5
-  category: MyString
+  productID: 2
+  name: Lifejacket
+  description: Protective and fashionable
+  price: 109.6
+  category: Watersports
   imagedata: 
-  imagemimetype: MyString
+  imagemimetype: 
