@@ -8,8 +8,7 @@ module ProductHelper
   end
   
   def self.get_by_category(category, pagenum, pagesize)
-    products = Product.find_all_by_category(category)
-    total = products.length
+    total = Product.where(:category => category).count
     pager = ApplicationHelper::Pager.new(total, pagenum, pagesize)
     products = Product.find_all_by_category(category, :limit => pager.pagesize, :offset => pager.lower_bound)
     { :pager => pager, :list => products }

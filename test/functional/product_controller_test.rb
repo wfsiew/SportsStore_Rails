@@ -1,10 +1,6 @@
 require 'test_helper'
 
 class ProductControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-
   setup do
     @product = product(:one)
   end
@@ -52,4 +48,5 @@ class ProductControllerTest < ActionController::TestCase
     assert_not_nil assigns(:pager)
     assert_not_nil assigns(:category)
   end
+  
 end
