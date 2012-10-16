@@ -65,6 +65,10 @@ module ApplicationHelper
     def self.item_message(total, pagenum, pagesize)
       x = (pagenum - 1) * pagesize + 1
       y = pagenum * pagesize
+      
+      if total < y
+        y = total
+      end
 
       if total < 1
         return ""
