@@ -17,7 +17,7 @@ class ProductControllerTest < ActionController::TestCase
   end
 
   test "should get index_paged" do
-    get :index_paged, {'page' => 1}
+    get :index_paged, { 'page' => 1 }
     assert_response :success
     assert_template 'productspage'
     assert_not_nil assigns(:cart)
@@ -28,7 +28,7 @@ class ProductControllerTest < ActionController::TestCase
   end
 
   test "should get category" do
-    get :category, {'category' => @product.category}
+    get :category, { 'category' => @product.category }
     assert_response :success
     assert_template 'productspage'
     assert_not_nil assigns(:cart)
