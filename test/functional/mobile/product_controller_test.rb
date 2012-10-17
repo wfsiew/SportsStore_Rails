@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class Mobile::ProductControllerTest < ActionController::TestCase
-  
   setup do
     @product = product(:one)
   end
