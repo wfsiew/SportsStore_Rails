@@ -1,3 +1,4 @@
+# Controller class for the Product Catalog page
 class ProductController < ApplicationController
   layout 'productmain'
   
