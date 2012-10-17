@@ -24,12 +24,12 @@ class Admin::ProductController < Admin::AdminController
     imagemimetype, imagedata = ProductHelper.get_uploaded_file(q[:imagedata])
         
     o = Product.new(:name => q[:name], :description => q[:description], :price => q[:price],
-        :category => q[:category], :imagedata => imagedata, :imagemimetype => imagemimetype)
+                    :category => q[:category], :imagedata => imagedata, :imagemimetype => imagemimetype)
     @product = o
     
     respond_to do |fmt|
       if @product.save
-        fmt.html { redirect_to admin_product_url, :notice => t('product.save_success', :value => @product.name) }
+        fmt.html { redirect_to admin_product_path, :notice => t('product.save_success', :value => @product.name) }
         fmt.json { render :json => @product, :status => :created, :location => @product }
           
       else
@@ -52,7 +52,7 @@ class Admin::ProductController < Admin::AdminController
     @product = Product.find(params[:id])
     q = params[:product]
     dic = { :name => q[:name], :description => q[:description], :price => q[:price],
-      :category => q[:category] }
+            :category => q[:category] }
       
     if q[:imagedata].present?
       imagemimetype, imagedata = ProductHelper.get_uploaded_file(q[:imagedata])
@@ -62,7 +62,7 @@ class Admin::ProductController < Admin::AdminController
     
     respond_to do |fmt|
       if @product.update_attributes(dic)
-        fmt.html { redirect_to admin_product_url, :notice => t('product.save_success', :value => @product.name) }
+        fmt.html { redirect_to admin_product_path, :notice => t('product.save_success', :value => @product.name) }
         fmt.json { head :no_content }
           
       else
@@ -77,7 +77,7 @@ class Admin::ProductController < Admin::AdminController
     product.destroy
     
     respond_to do |fmt|
-      fmt.html { redirect_to admin_product_url, :notice => t('product.delete_success', :value => product.name) }
+      fmt.html { redirect_to admin_product_path, :notice => t('product.delete_success', :value => product.name) }
       fmt.json { head :no_content }
     end
   end

@@ -3,6 +3,10 @@ require 'test_helper'
 class CartControllerTest < ActionController::TestCase
   setup do
     @product = product(:two)
+    @shippingdetails = { :name => 'ben', :email => 'ben@gmail.com', :line1 => 'block 8', :line2 => 'jalan maju', :line3 => 'taman maju',
+                         :city => 'K.L', :state => 'W.P', :zip => '56000', :country => 'malaysia', :giftwrap => '1' }
+    @emptyshippingdetails = { :name => '', :email => '', :line1 => '', :line2 => '', :line3 => '',
+                              :city => '', :state => '', :zip => '', :country => '', :giftwrap => '' }
   end
   
   test "should get index" do
@@ -38,8 +42,7 @@ class CartControllerTest < ActionController::TestCase
   end
   
   test "should post checkout" do
-    post :checkout, { :name => 'ben', :email => 'ben@gmail.com', :line1 => 'block 8', :line2 => 'jalan maju', :line3 => 'taman maju',
-         :city => 'K.L', :state => 'W.P', :zip => '56000', :country => 'malaysia', :giftwrap => '1' }
+    post :checkout, @shippingdetails
     o = assigns(:shippingdetails)
     assert o.submit_order?(session[:cart])
     assert_equal 0, session[:cart].cartlines.length
@@ -47,8 +50,7 @@ class CartControllerTest < ActionController::TestCase
   end
   
   test "should not post checkout without required fields" do
-    post :checkout, { :name => '', :email => '', :line1 => '', :line2 => '', :line3 => '',
-         :city => '', :state => '', :zip => '', :country => '', :giftwrap => '' }
+    post :checkout, @emptyshippingdetails
     o = assigns(:shippingdetails)
     assert !o.valid?
     assert !o.submit_order?(session[:cart])
@@ -68,8 +70,7 @@ class CartControllerTest < ActionController::TestCase
   end
   
   test "should not post checkout with empty cartlines" do
-    post :checkout, { :name => '', :email => '', :line1 => '', :line2 => '', :line3 => '',
-         :city => '', :state => '', :zip => '', :country => '', :giftwrap => '' }
+    post :checkout, @emptyshippingdetails
     assert_not_nil assigns(:cartempty)
     assert_equal "Sorry, your cart is empty!", assigns(:cartempty)
   end

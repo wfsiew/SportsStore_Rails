@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  username: MyString
-  password: MyString
+ben:
+  username: ben
+  password: e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4 # secret
 
-two:
-  username: MyString
-  password: MyString
+steve:
+  username: steve
+  password: e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4 # secret
