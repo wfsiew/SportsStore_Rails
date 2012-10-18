@@ -69,7 +69,6 @@ class AdminProductFlowsTest < ActionDispatch::IntegrationTest
         assert_response :success
         assert_template 'editproductpage'
         
-        puts product_hash.inspect
         put admin_product_update_path, :id => product.productID, :product => product_hash
 
         assert assigns(:product).valid?
