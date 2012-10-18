@@ -7,7 +7,7 @@ class Order < ActionMailer::Base
   #   en.order.send_order.subject
   #
   
-  # Send the order with the Cart and ShippingDetails
+  # Send the order with the CartHelper::Cart and CartHelper::ShippingDetails info.
   def send_order(cart, shippingdetails)
     @cart = cart
     @shippingdetails = shippingdetails
