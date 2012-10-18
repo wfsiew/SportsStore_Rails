@@ -179,15 +179,12 @@
 
         <div class="method-description">
           
-          <p>Subject can be set in your I18n file at config/locales/en.yml with the
-following lookup:</p>
-
-<pre>en.order.send_order.subject</pre>
+          <p>Send the order with the Cart and ShippingDetails</p>
           
 
           
           <div class="method-source-code" id="send_order-source">
-            <pre><span class="ruby-comment"># File app/mailers/order.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/mailers/order.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">send_order</span>(<span class="ruby-identifier">cart</span>, <span class="ruby-identifier">shippingdetails</span>)
   <span class="ruby-ivar">@cart</span> = <span class="ruby-identifier">cart</span>
   <span class="ruby-ivar">@shippingdetails</span> = <span class="ruby-identifier">shippingdetails</span>
