@@ -6,7 +6,7 @@ class AdminProductFlowsTest < ActionDispatch::IntegrationTest
     @product = product(:one)
   end
 
-  test "login" do
+  test "login, create, update, and delete product" do
     ben = admin_user
     ben.logs_in @user.username, 'secret'
     ben.create_product :name => @product.name, :description => @product.description, :price => @product.price,
