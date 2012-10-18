@@ -4,8 +4,9 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
   setup do
     @product1 = product(:one)
     @product2 = product(:two)
-    @shippingdetails = { :name => 'ruby', :email => 'ruby@gmail.com', :line1 => 'Block 6-8-6', :line2 => 'Kuchai Entrepreneurs Park', 
-                         :line3 => 'Jalan Kuchai Lama', :city => 'Kuala Lumpur', :state => 'W.P', :zip => '58200', :country => 'Malaysia' }
+    @shippingdetails = { :name => 'ruby', :email => 'ruby@gmail.com', :line1 => 'Block 6-8-6', 
+                         :line2 => 'Kuchai Entrepreneurs Park', :line3 => 'Jalan Kuchai Lama', :city => 'Kuala Lumpur', 
+                         :state => 'W.P', :zip => '58200', :country => 'Malaysia' }
   end
   
   test "browse products" do

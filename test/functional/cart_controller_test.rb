@@ -3,8 +3,9 @@ require 'test_helper'
 class CartControllerTest < ActionController::TestCase
   setup do
     @product = product(:two)
-    @shippingdetails = { :name => 'ben', :email => 'ben@gmail.com', :line1 => 'block 8', :line2 => 'jalan maju', :line3 => 'taman maju',
-                         :city => 'K.L', :state => 'W.P', :zip => '56000', :country => 'malaysia', :giftwrap => '1' }
+    @shippingdetails = { :name => 'ben', :email => 'ben@gmail.com', :line1 => 'block 8', :line2 => 'jalan maju', 
+                         :line3 => 'taman maju', :city => 'K.L', :state => 'W.P', :zip => '56000', :country => 'malaysia', 
+                         :giftwrap => '1' }
     @emptyshippingdetails = { :name => '', :email => '', :line1 => '', :line2 => '', :line3 => '',
                               :city => '', :state => '', :zip => '', :country => '', :giftwrap => '' }
   end
