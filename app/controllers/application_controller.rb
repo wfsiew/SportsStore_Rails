@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   end
   
   def request_path
-    request.env['REQUEST_PATH']
+    #request.env['REQUEST_PATH']
+	request.path
   end
   
   helper_method :request_path
