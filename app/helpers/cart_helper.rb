@@ -44,9 +44,7 @@ module CartHelper
     
     # Get the total quantity from the CartLine Array.
     def total_quantity
-      total = 0
-      @cartlines.each { |o| total += o.quantity }
-      total
+      @cartlines.inject(0) { |total, o| total += o.quantity }
     end
     
     # Clear the CartLine Array.

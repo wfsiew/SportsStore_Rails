@@ -188,7 +188,8 @@
           <div class="method-source-code" id="request_path-source">
             <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">request_path</span>
-  <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">'REQUEST_PATH'</span>]
+  <span class="ruby-comment">#request.env['REQUEST_PATH']</span>
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">path</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- request_path-source -->
           
