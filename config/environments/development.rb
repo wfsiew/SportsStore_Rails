@@ -34,6 +34,8 @@ Sportsstore::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.log_level = :error
   
   ActionMailer::Base.smtp_settings = {
     :address => 'smtp.gmail.com',
